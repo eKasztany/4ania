@@ -20,6 +20,13 @@ extension Deparment {
     })
 }
 
+extension Service {
+    static let all = Resource<[Service]>(path: "services", parse: { json in
+        guard let dictionaries = json as? [JSONDictionary] else { return nil }
+        return dictionaries.flatMap(Service.init)
+    })
+}
+
 final class FirebaseClient {
     func load<A>(resource: Resource<A>, completion: @escaping (A?) -> ()) {
         let ref = FIRDatabase.database().reference()

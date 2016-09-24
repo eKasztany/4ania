@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		66602395844CEBA1426234A7 /* Pods_Queue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD586E98B665BB618BDD2F4 /* Pods_Queue.framework */; };
 		7A1A87DC1D96E23F000BE15D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1A87DB1D96E23F000BE15D /* MapKit.framework */; };
+		7A1A87DE1D96F1FA000BE15D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1A87DD1D96F1FA000BE15D /* Service.swift */; };
+		7A1A87E21D96F33A000BE15D /* ServiceGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1A87E11D96F33A000BE15D /* ServiceGroup.swift */; };
 		7A8507EE1D9682A5002FA849 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A8507ED1D9682A5002FA849 /* GoogleService-Info.plist */; };
 		7A8507F21D96C3C9002FA849 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8507F11D96C3C9002FA849 /* Department.swift */; };
 		7A8507F41D96C3E0002FA849 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8507F31D96C3E0002FA849 /* Address.swift */; };
@@ -28,6 +30,8 @@
 		0CD586E98B665BB618BDD2F4 /* Pods_Queue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Queue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D5582A7969BE46707CCACF6 /* Pods-Queue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Queue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Queue/Pods-Queue.debug.xcconfig"; sourceTree = "<group>"; };
 		7A1A87DB1D96E23F000BE15D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		7A1A87DD1D96F1FA000BE15D /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		7A1A87E11D96F33A000BE15D /* ServiceGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceGroup.swift; sourceTree = "<group>"; };
 		7A8507ED1D9682A5002FA849 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7A8507F11D96C3C9002FA849 /* Department.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		7A8507F31D96C3E0002FA849 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 				7A8507F31D96C3E0002FA849 /* Address.swift */,
 				7A8507F51D96C411002FA849 /* Location.swift */,
 				7A8507F71D96C468002FA849 /* OpeningHours.swift */,
+				7A1A87DD1D96F1FA000BE15D /* Service.swift */,
+				7A1A87E11D96F33A000BE15D /* ServiceGroup.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -298,7 +304,9 @@
 				7A977A7F1D967CCC0089218B /* AppDelegate.swift in Sources */,
 				7A8507F61D96C411002FA849 /* Location.swift in Sources */,
 				7A8507F41D96C3E0002FA849 /* Address.swift in Sources */,
+				7A1A87DE1D96F1FA000BE15D /* Service.swift in Sources */,
 				7A8507FA1D96C511002FA849 /* FirebaseClient.swift in Sources */,
+				7A1A87E21D96F33A000BE15D /* ServiceGroup.swift in Sources */,
 				7A8507F81D96C468002FA849 /* OpeningHours.swift in Sources */,
 				7A8507F21D96C3C9002FA849 /* Department.swift in Sources */,
 			);
