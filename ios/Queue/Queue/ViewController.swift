@@ -6,4 +6,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        FirebaseClient().load(resource: Deparment.all) { result in
+            print(result)
+        }
+    }
 }
