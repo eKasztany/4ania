@@ -51,6 +51,7 @@ class ViewController: UIViewController {
 
         mapView?.delegate = self
         tableView.dataSource = self
+        tableView.delegate = self
 
         FirebaseClient().load(resource: Department.all) { result in
             if let result = result {
@@ -58,7 +59,6 @@ class ViewController: UIViewController {
             } else {
                 self.state = .error
             }
-            print(result)
         }
 
         RemoteNotificationsManager.register { (result) in
@@ -84,6 +84,21 @@ class ViewController: UIViewController {
             mapView?.addAnnotation(annotation)
         }
         mapView?.showAnnotations(annotations, animated: false)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let index = sender as? Int,
+            let destination = segue.destination as? ServiceViewController,
+            segue.identifier == "showService" else { return }
+        switch state {
+        case .loaded(let departments):
+            destination.departmentId = departments[index].uid
+        default:
+            break
+        }
+        if let selectedIndex = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedIndex, animated: true)
+        }
     }
 
     @IBAction func toggleMap(_ sender: UIButton) {
@@ -125,6 +140,12 @@ extension ViewController: UITableViewDataSource {
         default:
             return 1
         }
+    }
+}
+
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "showService", sender: indexPath.row)
     }
 }
 
