@@ -6,7 +6,7 @@
 import Foundation
 import MapKit
 
-class Deparment: NSObject {
+class Department: NSObject {
     var address: Address
     var cityId: Double
     var uid: String
@@ -28,7 +28,7 @@ class Deparment: NSObject {
     }
 }
 
-extension Deparment {
+extension Department {
     convenience init?(dictionary: JSONDictionary) {
         self.init()
         guard let addressDictionary = dictionary["address"] as? JSONDictionary,
@@ -53,7 +53,7 @@ extension Deparment {
     }
 }
 
-extension Deparment: MKAnnotation {
+extension Department: MKAnnotation {
 
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2DMake(location.lat, location.lon)

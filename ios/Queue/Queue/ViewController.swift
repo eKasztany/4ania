@@ -10,7 +10,7 @@ class ViewController: UIViewController {
 
     enum State {
         case loading
-        case loaded([Deparment])
+        case loaded([Department])
         case empty
         case error
     }
@@ -32,7 +32,7 @@ class ViewController: UIViewController {
 
         mapView.delegate = self
 
-        FirebaseClient().load(resource: Deparment.all) { result in
+        FirebaseClient().load(resource: Department.all) { result in
             if let result = result {
                 self.state = .loaded(result)
             } else {

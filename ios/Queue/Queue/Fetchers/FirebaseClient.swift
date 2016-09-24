@@ -13,10 +13,10 @@ struct Resource<A> {
     let parse: (Any?) -> A?
 }
 
-extension Deparment {
-    static let all = Resource<[Deparment]>(path: "departments", parse: { json in
+extension Department {
+    static let all = Resource<[Department]>(path: "departments", parse: { json in
         guard let dictionaries = json as? [JSONDictionary] else { return nil }
-        return dictionaries.flatMap(Deparment.init)
+        return dictionaries.flatMap(Department.init)
     })
 }
 
