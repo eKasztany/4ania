@@ -10,32 +10,37 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import queueapp.eu.wilek.kolejelasu.map.MapPresenter;
 import queueapp.eu.wilek.kolejelasu.model.department.Department;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    private DatabaseReference rootReference = FirebaseDatabase.getInstance().getReference();
+    private MapPresenter mapPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        rootReference.child("departments").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    //Log.d("DEPARTMENT", "DATA: " + dataSnapshot.getValue());
-                    //Department department = dataSnapshot.getValue(Department.class);
-                    Log.d("DEPARTMENT", "OUT: " + new Department(dataSnapshot).getName());
-                }
-            }
+        mapPresenter = new MapPresenter();
+        mapPresenter.onCreated(this, savedInstanceState);
+    }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.d("BAZA", "The read failed: " + databaseError.getMessage());
-            }
-        });
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mapPresenter.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mapPresenter.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mapPresenter.onDestroy();
     }
 }
