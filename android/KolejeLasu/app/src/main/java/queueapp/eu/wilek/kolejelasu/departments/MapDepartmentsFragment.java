@@ -19,7 +19,6 @@ import queueapp.eu.wilek.kolejelasu.model.department.Department;
 
 public class MapDepartmentsFragment extends BaseDepertmentFragment {
 
-
     private MapPresenter mapPresenter;
 
     @Override
@@ -44,9 +43,8 @@ public class MapDepartmentsFragment extends BaseDepertmentFragment {
 
     @Override
     public void setItems(@NonNull List<Department> departmentList) {
-        //TODO: display items on map
+        mapPresenter.setItems(departmentList);
     }
-
 
     @Override
     public void onResume() {
