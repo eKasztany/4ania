@@ -13,8 +13,9 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="250dp"
         android:fitsSystemWindows="true"
+        android:id="@+id/department_layout"
         app:behavior_hideable="false"
         app:behavior_peekHeight="100dp"
         app:layout_behavior="@string/bottom_sheet_behavior"

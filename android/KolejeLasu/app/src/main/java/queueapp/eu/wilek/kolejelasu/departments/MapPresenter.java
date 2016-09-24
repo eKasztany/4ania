@@ -1,6 +1,5 @@
 package queueapp.eu.wilek.kolejelasu.departments;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -12,6 +11,7 @@ import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ import queueapp.eu.wilek.kolejelasu.model.department.Department;
  * Created by mateuszwilczynski on 24.09.2016.
  */
 
-public class MapPresenter {
+public class MapPresenter implements GoogleMap.OnMarkerClickListener {
 
     private static final int DEFAULT_ZOOM = 12;
     private static final double START_LATITUDE = 52.229676;
@@ -34,6 +34,8 @@ public class MapPresenter {
 
     private MapView mapView;
     private GoogleMap googleMap;
+
+    private OnDepartmentClickListener onDepartmentClickListener;
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         mapView = (MapView) view.findViewById(R.id.map_view);
@@ -45,6 +47,7 @@ public class MapPresenter {
                 MapPresenter.this.googleMap = googleMap;
                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
                         new LatLng(START_LATITUDE, START_LONGITUDE), DEFAULT_ZOOM));
+                googleMap.setOnMarkerClickListener(MapPresenter.this);
             }
         });
 
@@ -78,6 +81,12 @@ public class MapPresenter {
         }
     }
 
+    public void moveByY(int y) {
+        if (googleMap != null) {
+            googleMap.animateCamera(CameraUpdateFactory.scrollBy(0, y));
+        }
+    }
+
     public void clear() {
         if (googleMap != null) {
             googleMap.clear();
@@ -88,5 +97,28 @@ public class MapPresenter {
         return new MarkerOptions()
                 .position(new LatLng(item.getLocation().getLatitude(), item.getLocation().getLongitude()))
                 .title(item.getName());
+    }
+
+    public void setOnDepartmentClickListener(@Nullable OnDepartmentClickListener onDepartmentClickListener) {
+        this.onDepartmentClickListener = onDepartmentClickListener;
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        if (onDepartmentClickListener == null) {
+            return false;
+        }
+
+        String clickedDepartmentName = marker.getTitle();
+
+        for (Department department : departmentList) {
+
+            if (clickedDepartmentName.equals(department.getName())) {
+                onDepartmentClickListener.onClick(department);
+                break;
+            }
+        }
+
+        return false;
     }
 }
