@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Urzędy-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Queue" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,20 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="we4-4C-hIc">
-                                <frame key="frameInset" minY="64" width="375" height="395"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4Eo-Nw-dK3">
-                                <frame key="frameInset" minY="64" width="375" height="603"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Cy4-J2-ZLW">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="departmentCell" id="qq7-IZ-FrN">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="departmentCell" id="dEa-25-vSo">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qq7-IZ-FrN" id="akj-nu-pSW">
-                                            <frame key="frameInset" width="375" height="43"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dEa-25-vSo" id="K7s-Zj-ZEm">
+                                            <frame key="frameInset" width="342" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -39,26 +33,33 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Cy4-J2-ZLW" secondAttribute="trailing" id="L2A-S9-fQo"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cy4-J2-ZLW" secondAttribute="bottom" id="Otc-zJ-1Ay"/>
+                            <constraint firstItem="Cy4-J2-ZLW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="TQM-AH-dSf"/>
+                            <constraint firstItem="Cy4-J2-ZLW" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-64" id="dYe-7p-ter"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="9hM-Oe-LFg">
-                        <nil key="title"/>
+                    <navigationItem key="navigationItem" title="Urzędy" id="9hM-Oe-LFg">
                         <barButtonItem key="rightBarButtonItem" id="EhU-9t-gqa">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TOT-sv-yqs">
                                 <rect key="frame" x="276" y="7" width="83" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="mapa"/>
+                                <connections>
+                                    <action selector="toggleMap:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VXd-Zv-YBy"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="mapView" destination="we4-4C-hIc" id="PkR-hP-lxH"/>
-                        <outlet property="tableView" destination="4Eo-Nw-dK3" id="K6B-qk-6FQ"/>
+                        <outlet property="tableView" destination="Cy4-J2-ZLW" id="X0z-Ud-FLl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1075.5" y="124.5"/>
+            <point key="canvasLocation" x="1074.4000000000001" y="123.68815592203899"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HVa-CC-JJf">

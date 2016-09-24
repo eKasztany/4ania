@@ -5,6 +5,7 @@
 
 import UIKit
 import MapKit
+import SnapKit
 
 class ViewController: UIViewController {
 
@@ -15,8 +16,14 @@ class ViewController: UIViewController {
         case error
     }
 
+    enum ViewState {
+        case map
+        case list
+    }
+
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var mapView: MKMapView!
+    var mapView: MKMapView?
+    var mapTopConstraint: Constraint? = nil
     var state: State = .loading {
         didSet {
             switch state {
@@ -28,11 +35,21 @@ class ViewController: UIViewController {
             }
         }
     }
+    var viewState: ViewState = .list {
+        didSet {
+            switch viewState {
+            case .map:
+                break
+            case .list:
+                break
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mapView.delegate = self
+        mapView?.delegate = self
         tableView.dataSource = self
 
         FirebaseClient().load(resource: Department.all) { result in
@@ -46,13 +63,45 @@ class ViewController: UIViewController {
 
         RemoteNotificationsManager.register { (result) in
         }
+        createMapView()
+
+    }
+
+    private func createMapView() {
+        mapView = MKMapView()
+        view.insertSubview(mapView!, aboveSubview: tableView)
+        mapView!.snp.makeConstraints { (make) -> Void in
+            make.height.equalTo(self.tableView.snp.height)
+            make.width.equalTo(self.tableView.snp.width)
+            make.leading.equalTo(self.view.snp.leading)
+            make.trailing.equalTo(self.view.snp.trailing)
+            mapTopConstraint = make.top.equalTo(-self.tableView.frame.height).constraint
+        }
     }
 
     private func loadAnnotations(annotations: [MKAnnotation]) {
         for annotation in annotations {
-            mapView.addAnnotation(annotation)
+            mapView?.addAnnotation(annotation)
         }
-        mapView.showAnnotations(annotations, animated: true)
+        mapView?.showAnnotations(annotations, animated: false)
+    }
+
+    @IBAction func toggleMap(_ sender: UIButton) {
+        mapTopConstraint?.deactivate()
+        mapView?.snp.makeConstraints { (make) -> Void in
+            switch viewState {
+            case .list:
+                mapTopConstraint = make.top.equalTo(self.tableView.snp.top).constraint
+                viewState = .map
+            case .map:
+                mapTopConstraint = make.top.equalTo(-self.tableView.frame.height).constraint
+                viewState = .list
+            }
+        }
+        view.setNeedsUpdateConstraints()
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
     }
 }
 
