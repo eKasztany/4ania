@@ -15,12 +15,14 @@ class ViewController: UIViewController {
         case error
     }
 
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var mapView: MKMapView!
     var state: State = .loading {
         didSet {
             switch state {
-            case .loaded(let deparments):
-                loadAnnotations(annotations: deparments)
+            case .loaded(let departments):
+                loadAnnotations(annotations: departments)
+                tableView.reloadData()
             default:
                 break
             }
@@ -31,6 +33,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         mapView.delegate = self
+        tableView.dataSource = self
 
         FirebaseClient().load(resource: Department.all) { result in
             if let result = result {
@@ -42,7 +45,6 @@ class ViewController: UIViewController {
         }
 
         RemoteNotificationsManager.register { (result) in
-            print(result)
         }
     }
 
@@ -51,6 +53,29 @@ class ViewController: UIViewController {
             mapView.addAnnotation(annotation)
         }
         mapView.showAnnotations(annotations, animated: true)
+    }
+}
+
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        switch state {
+        case .loaded(let departments):
+            let cell = tableView.dequeueReusableCell(withIdentifier: "departmentCell", for: indexPath) as UITableViewCell
+            cell.textLabel?.text = departments[indexPath.row].name
+            return cell
+        default:
+            break
+        }
+        return UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch state {
+        case .loaded(let departments):
+            return departments.count
+        default:
+            return 1
+        }
     }
 }
 
