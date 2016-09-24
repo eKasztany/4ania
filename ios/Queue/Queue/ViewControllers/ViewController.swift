@@ -21,6 +21,7 @@ class ViewController: UIViewController {
         case list
     }
 
+    @IBOutlet weak var toggleButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     var mapView: MKMapView?
     var mapTopConstraint: Constraint? = nil
@@ -63,8 +64,10 @@ class ViewController: UIViewController {
 
         RemoteNotificationsManager.register { (result) in
         }
-        createMapView()
 
+        setNeedsStatusBarAppearanceUpdate()
+        createMapView()
+        configureBarButtonItem()
     }
 
     private func createMapView() {
@@ -77,6 +80,12 @@ class ViewController: UIViewController {
             make.trailing.equalTo(self.view.snp.trailing)
             mapTopConstraint = make.top.equalTo(-self.tableView.frame.height).constraint
         }
+    }
+
+    private func configureBarButtonItem() {
+        let attributes = [NSFontAttributeName: UIFont.init(name: "FontAwesome", size: 20.0)!]
+        toggleButton.setTitleTextAttributes(attributes, for: .normal)
+        toggleButton.title = "\u{f279}"
     }
 
     private func loadAnnotations(annotations: [MKAnnotation]) {
@@ -101,15 +110,17 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func toggleMap(_ sender: UIButton) {
+    @IBAction func toggleMap(_ sender: UIBarButtonItem) {
         mapTopConstraint?.deactivate()
         mapView?.snp.makeConstraints { (make) -> Void in
             switch viewState {
             case .list:
                 mapTopConstraint = make.top.equalTo(self.tableView.snp.top).constraint
+                toggleButton.title = "\u{f0ca}"
                 viewState = .map
             case .map:
                 mapTopConstraint = make.top.equalTo(-self.tableView.frame.height).constraint
+                toggleButton.title = "\u{f279}"
                 viewState = .list
             }
         }
