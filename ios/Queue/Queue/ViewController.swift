@@ -9,6 +9,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         FirebaseClient().load(resource: Deparment.all) { result in
+
+        RemoteNotificationsManager.register { (result) in
             print(result)
         }
     }

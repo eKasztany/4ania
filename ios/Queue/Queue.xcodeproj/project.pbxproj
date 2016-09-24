@@ -14,6 +14,8 @@
 		7A8507F61D96C411002FA849 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8507F51D96C411002FA849 /* Location.swift */; };
 		7A8507F81D96C468002FA849 /* OpeningHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8507F71D96C468002FA849 /* OpeningHours.swift */; };
 		7A8507FA1D96C511002FA849 /* FirebaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8507F91D96C511002FA849 /* FirebaseClient.swift */; };
+		7A959B131D96D83A00B5382B /* RemoteNotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A959B121D96D83A00B5382B /* RemoteNotificationsManager.swift */; };
+		7A959B151D96D8C100B5382B /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A959B141D96D8C100B5382B /* UserNotifications.framework */; };
 		7A977A7F1D967CCC0089218B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A977A7E1D967CCC0089218B /* AppDelegate.swift */; };
 		7A977A811D967CCC0089218B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A977A801D967CCC0089218B /* ViewController.swift */; };
 		7A977A841D967CCC0089218B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A977A821D967CCC0089218B /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 		7A8507F71D96C468002FA849 /* OpeningHours.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpeningHours.swift; sourceTree = "<group>"; };
 		7A8507F91D96C511002FA849 /* FirebaseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseClient.swift; sourceTree = "<group>"; };
 		7A8507FB1D96D292002FA849 /* Queue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Queue.entitlements; sourceTree = "<group>"; };
+		7A959B121D96D83A00B5382B /* RemoteNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNotificationsManager.swift; sourceTree = "<group>"; };
+		7A959B141D96D8C100B5382B /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		7A977A7B1D967CCC0089218B /* Queue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Queue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A977A7E1D967CCC0089218B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A977A801D967CCC0089218B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A959B151D96D8C100B5382B /* UserNotifications.framework in Frameworks */,
 				66602395844CEBA1426234A7 /* Pods_Queue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,6 +61,7 @@
 		1507AD1EEA801808B1FD4576 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A959B141D96D8C100B5382B /* UserNotifications.framework */,
 				0CD586E98B665BB618BDD2F4 /* Pods_Queue.framework */,
 			);
 			name = Frameworks;
@@ -80,6 +86,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		7A959B111D96D80500B5382B /* RemoteNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				7A959B121D96D83A00B5382B /* RemoteNotificationsManager.swift */,
+			);
+			path = RemoteNotifications;
+			sourceTree = "<group>";
+		};
 		7A977A721D967CCC0089218B = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +115,7 @@
 		7A977A7D1D967CCC0089218B /* Queue */ = {
 			isa = PBXGroup;
 			children = (
+				7A959B111D96D80500B5382B /* RemoteNotifications */,
 				7A8507FB1D96D292002FA849 /* Queue.entitlements */,
 				7A8507F01D96C3A2002FA849 /* Models */,
 				7A8507EF1D96C389002FA849 /* Fetchers */,
@@ -268,6 +283,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A959B131D96D83A00B5382B /* RemoteNotificationsManager.swift in Sources */,
 				7A977A811D967CCC0089218B /* ViewController.swift in Sources */,
 				7A977A7F1D967CCC0089218B /* AppDelegate.swift in Sources */,
 				7A8507F61D96C411002FA849 /* Location.swift in Sources */,

@@ -17,4 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         return true
     }
+
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        var token: String = ""
+        for i in 0..<deviceToken.count {
+            token += String(format: "%02.2hhx", deviceToken[i] as CVarArg)
+        }
+        print(token)
+    }
 }
