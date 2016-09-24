@@ -2,6 +2,7 @@ target 'Queue' do
   use_frameworks!
 
   pod 'Alamofire'
+  pod 'Firebase/Database'
 end
 
 post_install do |installer|
