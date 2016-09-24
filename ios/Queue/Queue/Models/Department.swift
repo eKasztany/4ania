@@ -60,10 +60,10 @@ extension Department: MKAnnotation {
     }
 
     var title: String? {
-        return self.name
+        return name
     }
 
     var subtitle: String? {
-        return self.desc
+        return "\(address.street), \(address.code)"
     }
 }

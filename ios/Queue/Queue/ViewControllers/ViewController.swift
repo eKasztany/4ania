@@ -23,14 +23,20 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var toggleButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
+    var containerView: UIView?
     var mapView: MKMapView?
-    var mapTopConstraint: Constraint? = nil
+    var detailView: DepartmentDetailView?
+    var containerViewTopConstraint: Constraint? = nil
     var state: State = .loading {
         didSet {
             switch state {
             case .loaded(let departments):
                 loadAnnotations(annotations: departments)
                 tableView.reloadData()
+                if let defaultDepartment = departments.first {
+                    detailView?.department = defaultDepartment
+                    mapView?.selectAnnotation(defaultDepartment, animated: false)
+                }
             default:
                 break
             }
@@ -50,7 +56,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        mapView?.delegate = self
         tableView.dataSource = self
         tableView.delegate = self
 
@@ -66,19 +71,38 @@ class ViewController: UIViewController {
         }
 
         setNeedsStatusBarAppearanceUpdate()
-        createMapView()
         configureBarButtonItem()
+        configureSliderView()
     }
 
-    private func createMapView() {
-        mapView = MKMapView()
-        view.insertSubview(mapView!, aboveSubview: tableView)
-        mapView!.snp.makeConstraints { (make) -> Void in
+    private func configureSliderView() {
+        containerView = UIView()
+        view.insertSubview(containerView!, aboveSubview: tableView)
+        containerView!.snp.makeConstraints { (make) -> Void in
             make.height.equalTo(self.tableView.snp.height)
             make.width.equalTo(self.tableView.snp.width)
             make.leading.equalTo(self.view.snp.leading)
             make.trailing.equalTo(self.view.snp.trailing)
-            mapTopConstraint = make.top.equalTo(-self.tableView.frame.height).constraint
+            containerViewTopConstraint = make.top.equalTo(-self.tableView.frame.height).constraint
+        }
+
+        detailView = R.nib.departmentDetailView.firstView(owner: nil)
+        containerView!.addSubview(detailView!)
+        detailView!.snp.makeConstraints { (make) -> Void in
+            make.bottom.equalTo(containerView!.snp.bottom)
+            make.leading.equalTo(containerView!.snp.leading)
+            make.trailing.equalTo(containerView!.snp.trailing)
+            make.height.equalTo(270)
+        }
+
+        mapView = MKMapView()
+        containerView!.addSubview(mapView!)
+        mapView!.delegate = self
+        mapView!.snp.makeConstraints { (make) -> Void in
+            make.top.equalTo(containerView!.snp.top)
+            make.leading.equalTo(containerView!.snp.leading)
+            make.trailing.equalTo(containerView!.snp.trailing)
+            make.bottom.equalTo(detailView!.snp.top)
         }
     }
 
@@ -111,15 +135,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func toggleMap(_ sender: UIBarButtonItem) {
-        mapTopConstraint?.deactivate()
-        mapView?.snp.makeConstraints { (make) -> Void in
+        containerViewTopConstraint?.deactivate()
+        containerView?.snp.makeConstraints { (make) -> Void in
             switch viewState {
             case .list:
-                mapTopConstraint = make.top.equalTo(self.tableView.snp.top).constraint
+                containerViewTopConstraint = make.top.equalTo(self.tableView.snp.top).constraint
                 toggleButton.title = "\u{f0ca}"
                 viewState = .map
             case .map:
-                mapTopConstraint = make.top.equalTo(-self.tableView.frame.height).constraint
+                containerViewTopConstraint = make.top.equalTo(-self.tableView.frame.height).constraint
                 toggleButton.title = "\u{f279}"
                 viewState = .list
             }
@@ -137,6 +161,7 @@ extension ViewController: UITableViewDataSource {
         case .loaded(let departments):
             let cell = tableView.dequeueReusableCell(withIdentifier: "departmentCell", for: indexPath) as UITableViewCell
             cell.textLabel?.text = departments[indexPath.row].name
+            cell.textLabel?.font = UIFont.systemFont(ofSize: 18.0)
             return cell
         default:
             break
@@ -161,10 +186,10 @@ extension ViewController: UITableViewDelegate {
 }
 
 extension ViewController: MKMapViewDelegate {
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        let newAnnotation = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pinAnnotation")
-        newAnnotation.canShowCallout = true
-        newAnnotation.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-        return newAnnotation
+
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        guard let annotation = view.annotation,
+            let department = annotation as? Department else { return }
+        detailView?.department = department
     }
 }

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DepartmentDetailView" customModule="Queue" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="387" height="277"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Urząd Dzielnicy Białołęka" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nKK-td-1IW">
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0X-bz-6Br">
+                    <string key="text">7:30 - 15:30
+7:30 - 15:30
+7:30 - 15:30
+7:30 - 15:30
+7:30 - 15:30</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icon1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W4D-X5-D2s">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hQq-By-7q4">
+                    <string key="text">Poniedziałek:
+Wtorek:
+Środa:
+Czwartek:
+Piątek:</string>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Icon2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WTj-bk-IOb">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNL-6Y-5g7">
+                    <state key="normal" title="Przejdź do usług urzędu"/>
+                    <connections>
+                        <action selector="goToService:" destination="iN0-l3-epB" eventType="touchUpInside" id="vgh-qV-YNI"/>
+                    </connections>
+                </button>
+                <textView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" text="22 767 77 77" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bYo-Iu-fQg">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                    <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nKK-td-1IW" secondAttribute="trailing" constant="20" symbolic="YES" id="1yn-z1-NW6"/>
+                <constraint firstItem="hQq-By-7q4" firstAttribute="leading" secondItem="W4D-X5-D2s" secondAttribute="trailing" constant="20" id="1zj-u7-epr"/>
+                <constraint firstItem="W4D-X5-D2s" firstAttribute="leading" secondItem="nKK-td-1IW" secondAttribute="leading" id="3BJ-yQ-Qqy"/>
+                <constraint firstItem="hQq-By-7q4" firstAttribute="top" secondItem="W4D-X5-D2s" secondAttribute="top" id="44l-6R-GjN"/>
+                <constraint firstItem="bYo-Iu-fQg" firstAttribute="leading" secondItem="hQq-By-7q4" secondAttribute="leading" constant="-4" id="4rV-kS-fQT"/>
+                <constraint firstItem="bYo-Iu-fQg" firstAttribute="top" secondItem="WTj-bk-IOb" secondAttribute="top" constant="-10" id="6ha-1x-DsI"/>
+                <constraint firstItem="WTj-bk-IOb" firstAttribute="top" secondItem="W4D-X5-D2s" secondAttribute="bottom" constant="20" id="Doe-JJ-M1D"/>
+                <constraint firstItem="nKK-td-1IW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="F0e-Le-qHO"/>
+                <constraint firstItem="W4D-X5-D2s" firstAttribute="top" secondItem="nKK-td-1IW" secondAttribute="bottom" constant="20" id="Gn2-ZV-d6z"/>
+                <constraint firstItem="i0X-bz-6Br" firstAttribute="leading" secondItem="hQq-By-7q4" secondAttribute="trailing" constant="8" id="ICY-WV-0GD"/>
+                <constraint firstItem="nKK-td-1IW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="LAy-eG-qsE"/>
+                <constraint firstItem="WTj-bk-IOb" firstAttribute="leading" secondItem="W4D-X5-D2s" secondAttribute="leading" id="Sz8-2h-ddv"/>
+                <constraint firstItem="i0X-bz-6Br" firstAttribute="baseline" secondItem="hQq-By-7q4" secondAttribute="baseline" id="Xjd-cL-Nc5"/>
+                <constraint firstItem="yNL-6Y-5g7" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="YAt-BR-JUn"/>
+                <constraint firstAttribute="bottom" secondItem="yNL-6Y-5g7" secondAttribute="bottom" constant="20" id="p6j-aY-AqD"/>
+                <constraint firstItem="hQq-By-7q4" firstAttribute="baseline" secondItem="W4D-X5-D2s" secondAttribute="baseline" id="yIP-1j-TFX"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="nameLabel" destination="nKK-td-1IW" id="TAZ-YI-vsi"/>
+                <outlet property="openingHoursIconLabel" destination="W4D-X5-D2s" id="7Xb-kG-0Ro"/>
+                <outlet property="openingHoursLabel" destination="i0X-bz-6Br" id="LxO-O8-G4R"/>
+                <outlet property="phoneIcon" destination="WTj-bk-IOb" id="k9y-84-SmG"/>
+                <outlet property="phoneTextView" destination="bYo-Iu-fQg" id="f7N-r2-SLr"/>
+            </connections>
+            <point key="canvasLocation" x="-74.5" y="287.5"/>
+        </view>
+    </objects>
+</document>

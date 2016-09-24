@@ -4,6 +4,7 @@ target 'Queue' do
   pod 'Alamofire'
   pod 'Firebase/Database'
   pod 'SnapKit'
+  pod 'R.swift'
 end
 
 post_install do |installer|
