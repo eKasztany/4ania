@@ -4,6 +4,7 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
 
@@ -14,10 +15,23 @@ class ViewController: UIViewController {
         case error
     }
 
-    var state: State = .loading
+    @IBOutlet weak var mapView: MKMapView!
+    var state: State = .loading {
+        didSet {
+            switch state {
+            case .loaded(let deparments):
+                loadAnnotations(annotations: deparments)
+            default:
+                break
+            }
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        mapView.delegate = self
+
         FirebaseClient().load(resource: Deparment.all) { result in
             if let result = result {
                 self.state = .loaded(result)
@@ -30,5 +44,21 @@ class ViewController: UIViewController {
         RemoteNotificationsManager.register { (result) in
             print(result)
         }
+    }
+
+    private func loadAnnotations(annotations: [MKAnnotation]) {
+        for annotation in annotations {
+            mapView.addAnnotation(annotation)
+        }
+        mapView.showAnnotations(annotations, animated: true)
+    }
+}
+
+extension ViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let newAnnotation = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "pinAnnotation")
+        newAnnotation.canShowCallout = true
+        newAnnotation.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+        return newAnnotation
     }
 }

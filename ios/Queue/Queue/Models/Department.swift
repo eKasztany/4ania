@@ -4,19 +4,33 @@
 //
 
 import Foundation
+import MapKit
 
-struct Deparment {
-    let address: Address
-    let cityId: Double
-    let uid: String
-    let location: Location
-    let name: String
-    let openingHours: OpeningHours
-    let phone: String
+class Deparment: NSObject {
+    var address: Address
+    var cityId: Double
+    var uid: String
+    var location: Location
+    var name: String
+    var openingHours: OpeningHours
+    var phone: String
+    var desc: String
+
+    override init() {
+        self.address = Address(city: "", code: "", street: "")
+        self.cityId = 0
+        self.uid = ""
+        self.location = Location(lat: 0, lon: 0)
+        self.name = ""
+        self.openingHours = OpeningHours(mon: "", tue: "", wen: "", thr: "", fri: "")
+        self.phone = ""
+        self.desc = ""
+    }
 }
 
 extension Deparment {
-    init?(dictionary: JSONDictionary) {
+    convenience init?(dictionary: JSONDictionary) {
+        self.init()
         guard let addressDictionary = dictionary["address"] as? JSONDictionary,
             let address = Address(dictionary: addressDictionary),
             let cityId = dictionary["city_id"] as? Double,
@@ -26,7 +40,8 @@ extension Deparment {
             let name = dictionary["name"] as? String,
             let openingHoursDictionary = dictionary["opening_hours"] as? JSONDictionary,
             let openingHours = OpeningHours(dictionary: openingHoursDictionary),
-            let phone = dictionary["phone"] as? String else { return nil }
+            let phone = dictionary["phone"] as? String,
+            let desc = dictionary["description"] as? String else { return nil }
         self.address = address
         self.cityId = cityId
         self.uid = uid
@@ -34,5 +49,21 @@ extension Deparment {
         self.name = name
         self.openingHours = openingHours
         self.phone = phone
+        self.desc = desc
+    }
+}
+
+extension Deparment: MKAnnotation {
+
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2DMake(location.lat, location.lon)
+    }
+
+    var title: String? {
+        return self.name
+    }
+
+    var subtitle: String? {
+        return self.desc
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		66602395844CEBA1426234A7 /* Pods_Queue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CD586E98B665BB618BDD2F4 /* Pods_Queue.framework */; };
+		7A1A87DC1D96E23F000BE15D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1A87DB1D96E23F000BE15D /* MapKit.framework */; };
 		7A8507EE1D9682A5002FA849 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A8507ED1D9682A5002FA849 /* GoogleService-Info.plist */; };
 		7A8507F21D96C3C9002FA849 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8507F11D96C3C9002FA849 /* Department.swift */; };
 		7A8507F41D96C3E0002FA849 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A8507F31D96C3E0002FA849 /* Address.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		0CD586E98B665BB618BDD2F4 /* Pods_Queue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Queue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D5582A7969BE46707CCACF6 /* Pods-Queue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Queue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Queue/Pods-Queue.debug.xcconfig"; sourceTree = "<group>"; };
+		7A1A87DB1D96E23F000BE15D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7A8507ED1D9682A5002FA849 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7A8507F11D96C3C9002FA849 /* Department.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		7A8507F31D96C3E0002FA849 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
@@ -51,6 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A959B151D96D8C100B5382B /* UserNotifications.framework in Frameworks */,
+				7A1A87DC1D96E23F000BE15D /* MapKit.framework in Frameworks */,
 				66602395844CEBA1426234A7 /* Pods_Queue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -61,6 +64,7 @@
 		1507AD1EEA801808B1FD4576 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A1A87DB1D96E23F000BE15D /* MapKit.framework */,
 				7A959B141D96D8C100B5382B /* UserNotifications.framework */,
 				0CD586E98B665BB618BDD2F4 /* Pods_Queue.framework */,
 			);
@@ -179,6 +183,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
 								enabled = 1;
 							};
 							com.apple.Push = {
