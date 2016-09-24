@@ -29,6 +29,21 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="loadingCell" id="nRM-EL-7tb">
+                                        <rect key="frame" x="0.0" y="172" width="375" height="80"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nRM-EL-7tb" id="rGH-xQ-InB">
+                                            <frame key="frameInset" width="375" height="79"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="BZb-GP-5T0"/>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <constraints>
+                                            <constraint firstItem="BZb-GP-5T0" firstAttribute="centerX" secondItem="nRM-EL-7tb" secondAttribute="centerX" id="hJk-Ex-sQ2"/>
+                                            <constraint firstItem="BZb-GP-5T0" firstAttribute="centerY" secondItem="nRM-EL-7tb" secondAttribute="centerY" id="kVL-9k-SZj"/>
+                                        </constraints>
+                                    </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>

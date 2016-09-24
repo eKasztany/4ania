@@ -5,6 +5,10 @@
 
 import UIKit
 
+protocol DepartmentDetailViewDelegate: class {
+    func didSelectDepartment(department: Department)
+}
+
 class DepartmentDetailView: UIView {
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -12,6 +16,8 @@ class DepartmentDetailView: UIView {
     @IBOutlet weak var openingHoursLabel: UILabel!
     @IBOutlet weak var phoneIcon: UILabel!
     @IBOutlet weak var phoneTextView: UITextView!
+
+    weak var delegate: DepartmentDetailViewDelegate?
 
     override func awakeFromNib() {
         openingHoursIconLabel.font = UIFont.init(name: "FontAwesome", size: 20.0)!
@@ -33,6 +39,7 @@ class DepartmentDetailView: UIView {
     }
 
     @IBAction func goToService(_ sender: AnyObject) {
-
+        guard let department = department else { return }
+        delegate?.didSelectDepartment(department: department)
     }
 }

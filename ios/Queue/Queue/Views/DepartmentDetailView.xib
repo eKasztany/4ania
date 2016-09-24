@@ -48,6 +48,7 @@ Piątek:</string>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yNL-6Y-5g7">
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <state key="normal" title="Przejdź do usług urzędu"/>
                     <connections>
                         <action selector="goToService:" destination="iN0-l3-epB" eventType="touchUpInside" id="vgh-qV-YNI"/>

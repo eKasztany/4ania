@@ -47,8 +47,16 @@ struct R {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 0 images.
+  /// This `R.image` struct is generated, and contains static references to 1 images.
   struct image {
+    /// Image `Image`.
+    static let image = ImageResource(bundle: _R.hostingBundle, name: "Image")
+    
+    /// `UIImage(named: "Image", bundle: ..., traitCollection: ...)`
+    static func image(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
+      return UIImage(resource: R.image.image, compatibleWith: traitCollection)
+    }
+    
     fileprivate init() {}
   }
   
@@ -65,10 +73,12 @@ struct R {
     fileprivate init() {}
   }
   
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 2 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `departmentCell`.
     static let departmentCell: ReuseIdentifier<UITableViewCell> = ReuseIdentifier(identifier: "departmentCell")
+    /// Reuse identifier `loadingCell`.
+    static let loadingCell: ReuseIdentifier<UITableViewCell> = ReuseIdentifier(identifier: "loadingCell")
     /// Reuse identifier `serviceCell`.
     static let serviceCell: ReuseIdentifier<UITableViewCell> = ReuseIdentifier(identifier: "serviceCell")
     

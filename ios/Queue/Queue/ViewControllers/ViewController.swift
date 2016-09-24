@@ -59,6 +59,8 @@ class ViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
 
+        state = .loading
+
         FirebaseClient().load(resource: Department.all) { result in
             if let result = result {
                 self.state = .loaded(result)
@@ -88,6 +90,7 @@ class ViewController: UIViewController {
 
         detailView = R.nib.departmentDetailView.firstView(owner: nil)
         containerView!.addSubview(detailView!)
+        detailView!.delegate = self
         detailView!.snp.makeConstraints { (make) -> Void in
             make.bottom.equalTo(containerView!.snp.bottom)
             make.leading.equalTo(containerView!.snp.leading)
@@ -120,15 +123,11 @@ class ViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let index = sender as? Int,
+        guard let department = sender as? Department,
             let destination = segue.destination as? ServiceViewController,
             segue.identifier == "showService" else { return }
-        switch state {
-        case .loaded(let departments):
-            destination.departmentId = departments[index].uid
-        default:
-            break
-        }
+        destination.departmentId = department.uid
+        destination.title = department.name
         if let selectedIndex = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: selectedIndex, animated: true)
         }
@@ -163,6 +162,8 @@ extension ViewController: UITableViewDataSource {
             cell.textLabel?.text = departments[indexPath.row].name
             cell.textLabel?.font = UIFont.systemFont(ofSize: 18.0)
             return cell
+        case .loading:
+            return tableView.dequeueReusableCell(withIdentifier: "loadingCell", for: indexPath) as UITableViewCell
         default:
             break
         }
@@ -181,11 +182,30 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showService", sender: indexPath.row)
+        switch state {
+        case .loaded(let departments):
+            performSegue(withIdentifier: "showService", sender: departments[indexPath.row])
+        default:
+            return
+        }
+
+    }
+}
+
+extension ViewController: DepartmentDetailViewDelegate {
+    func didSelectDepartment(department: Department) {
+        performSegue(withIdentifier: "showService", sender: department)
     }
 }
 
 extension ViewController: MKMapViewDelegate {
+
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "departmentAnnotation")
+        annotationView.image = R.image.image()
+        annotationView.canShowCallout = true
+        return annotationView
+    }
 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let annotation = view.annotation,
