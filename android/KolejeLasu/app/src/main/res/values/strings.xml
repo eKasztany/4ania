@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Koleje Lasu</string>
+    <string name="maps">Mapa urzędów</string>
+    <string name="department_list">Urzędy</string>
 </resources>
