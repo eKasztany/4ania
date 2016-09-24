@@ -24,7 +24,7 @@ public class Department {
         name = dataSnapshot.child("name").getValue(String.class);
         openingHours = new OpeningHours(dataSnapshot.child("opening_hours"));
         departmentId = dataSnapshot.child("department_id").getValue(String.class);
-        address = new Address(dataSnapshot.child("addessss"));
+        address = new Address(dataSnapshot.child("address"));
         location = new Location(dataSnapshot.child("location"));
         phone = dataSnapshot.child("phone").getValue(String.class);
         description = dataSnapshot.child("description").getValue(String.class);

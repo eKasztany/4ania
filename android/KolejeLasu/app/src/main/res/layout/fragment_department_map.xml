@@ -13,17 +13,35 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:fitsSystemWindows="true"
+        android:layout_height="295dp"
         android:id="@+id/department_layout"
         app:behavior_hideable="false"
-        app:behavior_peekHeight="100dp"
-        app:layout_behavior="@string/bottom_sheet_behavior"
-        android:clickable="true">
+        app:behavior_peekHeight="@dimen/default_info_height"
+        app:layout_behavior="@string/bottom_sheet_behavior">
 
-        <View
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#FF0000"/>
+            android:layout_height="270dp"
+            android:fitsSystemWindows="true"
+            android:layout_marginTop="25dp"
+            android:background="#E5FFFFFF"
+            android:clickable="true">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager_departments"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|top"
+            android:src="@drawable/arrow_right"
+            android:layout_marginRight="@dimen/activity_horizontal_margin"
+            app:layout_anchor="@id/department_layout"
+            app:layout_anchorGravity="center"/>
+
     </FrameLayout>
 </android.support.design.widget.CoordinatorLayout>

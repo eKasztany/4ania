@@ -2,4 +2,9 @@
     <string name="app_name">Koleje Lasu</string>
     <string name="maps">Mapa urzędów</string>
     <string name="department_list">Urzędy</string>
+    <string name="monday">Poniedziałek:</string>
+    <string name="tuesday">Wtorek:</string>
+    <string name="wednesday">Środka:</string>
+    <string name="thursday">Czwartek:</string>
+    <string name="friday">Piątek:</string>
 </resources>

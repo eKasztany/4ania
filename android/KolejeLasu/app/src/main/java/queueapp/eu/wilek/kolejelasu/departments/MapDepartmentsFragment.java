@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 
 import java.util.List;
 
@@ -20,15 +20,18 @@ import queueapp.eu.wilek.kolejelasu.model.department.Department;
  * Created by mateuszwilczynski on 24.09.2016.
  */
 
-public class MapDepartmentsFragment extends BaseDepertmentFragment implements OnDepartmentClickListener {
+public class MapDepartmentsFragment extends BaseDepertmentFragment implements OnDepartmentClickListener, ViewPager.OnPageChangeListener {
 
     private MapPresenter mapPresenter;
+    private DepartmentsSwipePageAdapter departmentsSwipePageAdapter;
+    private ViewPager departmentsViewPager;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
 
         mapPresenter = new MapPresenter();
+        departmentsSwipePageAdapter = new DepartmentsSwipePageAdapter(context);
     }
 
     @Nullable
@@ -60,11 +63,16 @@ public class MapDepartmentsFragment extends BaseDepertmentFragment implements On
                 //nop
             }
         });
+
+        departmentsViewPager = (ViewPager) view.findViewById(R.id.view_pager_departments);
+        departmentsViewPager.setAdapter(departmentsSwipePageAdapter);
+        departmentsViewPager.addOnPageChangeListener(this);
     }
 
     @Override
     public void setItems(@NonNull List<Department> departmentList) {
         mapPresenter.setItems(departmentList);
+        departmentsSwipePageAdapter.setItems(departmentList);
     }
 
     @Override
@@ -79,14 +87,36 @@ public class MapDepartmentsFragment extends BaseDepertmentFragment implements On
         mapPresenter.onPause();
     }
 
+
+    @Override
+    public void onClick(int position) {
+        departmentsViewPager.setCurrentItem(position, true);
+    }
+
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+    }
+
+    @Override
+    public void onPageSelected(int position) {
+        mapPresenter.setSelectedMarker(position);
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) {
+
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        departmentsViewPager.removeOnPageChangeListener(this);
+    }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         mapPresenter.onDestroy();
-    }
-
-    @Override
-    public void onClick(@NonNull Department department) {
-        Log.d("TEST", "CLICKED: " + department.getName());
     }
 }

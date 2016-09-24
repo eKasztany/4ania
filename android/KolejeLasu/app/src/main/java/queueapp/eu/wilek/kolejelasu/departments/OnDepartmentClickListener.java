@@ -10,5 +10,5 @@ import queueapp.eu.wilek.kolejelasu.model.department.Department;
 
 public interface OnDepartmentClickListener {
 
-    void onClick(@NonNull Department department);
+    void onClick(int position);
 }
