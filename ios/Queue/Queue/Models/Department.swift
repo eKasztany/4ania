@@ -8,7 +8,7 @@ import Foundation
 struct Deparment {
     let address: Address
     let cityId: Double
-    let id: String
+    let uid: String
     let location: Location
     let name: String
     let openingHours: OpeningHours
@@ -20,7 +20,7 @@ extension Deparment {
         guard let addressDictionary = dictionary["address"] as? JSONDictionary,
             let address = Address(dictionary: addressDictionary),
             let cityId = dictionary["city_id"] as? Double,
-            let id = dictionary["department_id"] as? String,
+            let uid = dictionary["department_id"] as? String,
             let locationDictionary = dictionary["location"] as? JSONDictionary,
             let location = Location(dictionary: locationDictionary),
             let name = dictionary["name"] as? String,
@@ -29,7 +29,7 @@ extension Deparment {
             let phone = dictionary["phone"] as? String else { return nil }
         self.address = address
         self.cityId = cityId
-        self.id = id
+        self.uid = uid
         self.location = location
         self.name = name
         self.openingHours = openingHours
