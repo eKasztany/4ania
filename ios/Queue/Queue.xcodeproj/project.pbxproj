@@ -101,6 +101,7 @@
 				7A977A791D967CCC0089218B /* Resources */,
 				0A80060F4088C5FC32AA2412 /* [CP] Embed Pods Frameworks */,
 				9532CCD0DCB0F327861AA682 /* [CP] Copy Pods Resources */,
+				7A977A901D967DAD0089218B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -174,6 +175,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Queue/Pods-Queue-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		7A977A901D967DAD0089218B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\necho \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		9532CCD0DCB0F327861AA682 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
