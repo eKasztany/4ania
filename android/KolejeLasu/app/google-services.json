@@ -1,0 +1,50 @@
+{
+  "project_info": {
+    "project_number": "32787880713",
+    "firebase_url": "https://kolejka-13078.firebaseio.com",
+    "project_id": "kolejka-13078",
+    "storage_bucket": "kolejka-13078.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:32787880713:android:440b1f3f125d25cf",
+        "android_client_info": {
+          "package_name": "queueapp.eu.wilek.kolejelasu"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "32787880713-ahskvbgat99j9dreimkkp0kqnqhmtv7v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "queueapp.eu.wilek.kolejelasu",
+            "certificate_hash": "F7F590F2F497BD3A95AEDF24583784730881D2DB"
+          }
+        },
+        {
+          "client_id": "32787880713-r0gbonm92khhct7dv0ar4sm205brtg9v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjqd9Fe8-Q04TqSq-zqcS-tD9qCp0-fuA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
