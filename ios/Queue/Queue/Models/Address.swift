@@ -10,3 +10,14 @@ struct Address {
     let code: String
     let street: String
 }
+
+extension Address {
+    init?(dictionary: JSONDictionary) {
+        guard let city = dictionary["city"] as? String,
+            let code = dictionary["code"] as? String,
+            let street = dictionary["street"] as? String else { return nil }
+        self.city = city
+        self.code = code
+        self.street = street
+    }
+}
