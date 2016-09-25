@@ -22,7 +22,7 @@ class QueueInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateService()
-        configureBarButtonItem()
+//        configureBarButtonItem()
         configureButtons(hidden: true)
     }
 
@@ -76,15 +76,15 @@ class QueueInfoViewController: UIViewController {
         present(popup, animated: true, completion: nil)
     }
 
-    private func configureBarButtonItem() {
-        let barButtonItem = UIBarButtonItem(title: "\u{f080}",
-                                            style: .plain,
-                                            target: self,
-                                            action: #selector(showData))
-        let attributes = [NSFontAttributeName: UIFont.init(name: "FontAwesome", size: 20.0)!]
-        barButtonItem.setTitleTextAttributes(attributes, for: .normal)
-        navigationItem.rightBarButtonItem = barButtonItem
-    }
+//    private func configureBarButtonItem() {
+//        let barButtonItem = UIBarButtonItem(title: "\u{f080}",
+//                                            style: .plain,
+//                                            target: self,
+//                                            action: #selector(showData))
+//        let attributes = [NSFontAttributeName: UIFont.init(name: "FontAwesome", size: 20.0)!]
+//        barButtonItem.setTitleTextAttributes(attributes, for: .normal)
+//        navigationItem.rightBarButtonItem = barButtonItem
+//    }
 
     @IBAction func joinQueueOptionChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
