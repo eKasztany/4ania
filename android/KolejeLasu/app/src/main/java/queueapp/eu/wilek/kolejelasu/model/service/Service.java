@@ -14,11 +14,13 @@ import java.util.List;
 
 public class Service {
 
+    private final String id;
     private final String date;
     private final String time;
     private final List<Group> groupList = new ArrayList<>();
 
-    public Service(@NonNull DataSnapshot dataSnapshot) {
+    public Service(@NonNull String id, @NonNull DataSnapshot dataSnapshot) {
+        this.id = id;
         date = dataSnapshot.child("date").getValue(String.class);
         time = dataSnapshot.child("time").getValue(String.class);
 
@@ -27,6 +29,11 @@ public class Service {
         for (DataSnapshot snapshot : groupsSnapshot.getChildren()) {
             groupList.add(new Group(snapshot));
         }
+    }
+
+    @NonNull
+    public String getId() {
+        return id;
     }
 
     @NonNull

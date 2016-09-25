@@ -3,7 +3,6 @@ package queueapp.eu.wilek.kolejelasu.database;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 
-import queueapp.eu.wilek.kolejelasu.model.department.Department;
 import queueapp.eu.wilek.kolejelasu.model.service.Service;
 
 /**
@@ -19,6 +18,6 @@ public class ServiceFetcher extends DatabaseFetcher<Service> {
 
     @Override
     protected Service createData(DataSnapshot dataSnapshot) {
-        return new Service(dataSnapshot.child("service_data"));
+        return new Service(dataSnapshot.child("department_id").getValue(String.class), dataSnapshot.child("service_data"));
     }
 }

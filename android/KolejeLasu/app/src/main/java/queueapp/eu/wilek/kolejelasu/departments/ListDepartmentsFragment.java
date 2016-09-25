@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import queueapp.eu.wilek.kolejelasu.R;
-import queueapp.eu.wilek.kolejelasu.ServicesActivity;
+import queueapp.eu.wilek.kolejelasu.services.ServicesActivity;
 import queueapp.eu.wilek.kolejelasu.departments.adapters.DepartmentsAdapter;
 import queueapp.eu.wilek.kolejelasu.departments.interfaces.OnListItemClickListener;
 import queueapp.eu.wilek.kolejelasu.model.department.Department;
