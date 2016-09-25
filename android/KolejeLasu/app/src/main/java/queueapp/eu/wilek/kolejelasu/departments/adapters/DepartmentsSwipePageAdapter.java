@@ -1,4 +1,4 @@
-package queueapp.eu.wilek.kolejelasu.departments;
+package queueapp.eu.wilek.kolejelasu.departments.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -69,5 +69,9 @@ public class DepartmentsSwipePageAdapter extends PagerAdapter {
         departmentList.clear();
         departmentList.addAll(items);
         notifyDataSetChanged();
+    }
+
+    public Department getItem(int position) {
+        return departmentList.get(position);
     }
 }

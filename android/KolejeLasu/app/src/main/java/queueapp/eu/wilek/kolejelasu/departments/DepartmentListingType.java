@@ -4,6 +4,7 @@ import android.support.annotation.StringRes;
 import android.support.v4.app.Fragment;
 
 import queueapp.eu.wilek.kolejelasu.R;
+import queueapp.eu.wilek.kolejelasu.departments.adapters.PagerAdapterFragment;
 
 
 /**
@@ -36,7 +37,7 @@ public enum DepartmentListingType implements PagerAdapterFragment {
     }
 
     @StringRes
-    int getTitle() {
+    public int getTitle() {
         return title;
     }
 

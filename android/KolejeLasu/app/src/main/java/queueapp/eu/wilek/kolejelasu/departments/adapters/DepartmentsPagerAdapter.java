@@ -1,9 +1,11 @@
-package queueapp.eu.wilek.kolejelasu.departments;
+package queueapp.eu.wilek.kolejelasu.departments.adapters;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import queueapp.eu.wilek.kolejelasu.departments.DepartmentListingType;
 
 /**
  * Created by mateuszwilczynski on 24.09.2016.

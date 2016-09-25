@@ -1,4 +1,4 @@
-package queueapp.eu.wilek.kolejelasu.departments;
+package queueapp.eu.wilek.kolejelasu.departments.adapters;
 
 import android.support.v4.app.Fragment;
 

@@ -6,14 +6,16 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.List;
 
 import queueapp.eu.wilek.kolejelasu.R;
+import queueapp.eu.wilek.kolejelasu.departments.adapters.DepartmentsSwipePageAdapter;
+import queueapp.eu.wilek.kolejelasu.departments.interfaces.OnDepartmentClickListener;
 import queueapp.eu.wilek.kolejelasu.model.department.Department;
 
 /**
@@ -67,6 +69,14 @@ public class MapDepartmentsFragment extends BaseDepertmentFragment implements On
         departmentsViewPager = (ViewPager) view.findViewById(R.id.view_pager_departments);
         departmentsViewPager.setAdapter(departmentsSwipePageAdapter);
         departmentsViewPager.addOnPageChangeListener(this);
+        view.findViewById(R.id.show_services).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                Department department = departmentsSwipePageAdapter.getItem(departmentsViewPager.getCurrentItem());
+                Toast.makeText(getContext(), department.getName(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -95,7 +105,7 @@ public class MapDepartmentsFragment extends BaseDepertmentFragment implements On
 
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
+        //nop
     }
 
     @Override
@@ -105,7 +115,7 @@ public class MapDepartmentsFragment extends BaseDepertmentFragment implements On
 
     @Override
     public void onPageScrollStateChanged(int state) {
-
+        //nop
     }
 
     @Override

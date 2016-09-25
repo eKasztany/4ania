@@ -6,7 +6,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +13,7 @@ import java.util.List;
 import queueapp.eu.wilek.kolejelasu.database.DepartmentsFetcher;
 import queueapp.eu.wilek.kolejelasu.database.FetcherListener;
 import queueapp.eu.wilek.kolejelasu.departments.BaseDepertmentFragment;
-import queueapp.eu.wilek.kolejelasu.departments.DepartmentsPagerAdapter;
+import queueapp.eu.wilek.kolejelasu.departments.adapters.DepartmentsPagerAdapter;
 import queueapp.eu.wilek.kolejelasu.model.department.Department;
 
 /**
@@ -36,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(departmentsFragmentManager);
+        viewPager.setOffscreenPageLimit(departmentsFragmentManager.getCount());
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);

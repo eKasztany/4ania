@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import queueapp.eu.wilek.kolejelasu.R;
+import queueapp.eu.wilek.kolejelasu.departments.interfaces.OnDepartmentClickListener;
 import queueapp.eu.wilek.kolejelasu.model.department.Department;
 
 /**

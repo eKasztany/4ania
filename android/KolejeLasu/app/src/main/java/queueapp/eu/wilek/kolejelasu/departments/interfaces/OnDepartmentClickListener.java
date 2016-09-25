@@ -1,4 +1,4 @@
-package queueapp.eu.wilek.kolejelasu.departments;
+package queueapp.eu.wilek.kolejelasu.departments.interfaces;
 
 import android.support.annotation.NonNull;
 
