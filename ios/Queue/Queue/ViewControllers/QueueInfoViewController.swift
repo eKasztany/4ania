@@ -13,11 +13,16 @@ class QueueInfoViewController: UIViewController {
     @IBOutlet weak var currentNumber: UILabel!
     @IBOutlet weak var estimatedTimeOfService: UILabel!
 
+    @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet var timeButtons: [UIButton]!
+    @IBOutlet weak var actionButton: UIButton!
+
     var service: ServiceGroup?
     override func viewDidLoad() {
         super.viewDidLoad()
         updateService()
         configureBarButtonItem()
+        configureButtons(hidden: true)
     }
 
     private func updateService() {
@@ -39,7 +44,21 @@ class QueueInfoViewController: UIViewController {
         let estimatedTimeDouble = estimatedTime.doubleValue
         let estimatedMinutes = Int(estimatedTimeDouble / 60)
         let _ = estimatedTimeDouble - Double(estimatedMinutes * 60)
-        return String(format: "%d", estimatedMinutes) + " min "
+        return String(format: "%d", estimatedMinutes) + " minut"
+    }
+
+    private func configureButtons(hidden: Bool) {
+        if hidden {
+            descriptionLabel.text = "Nie musisz być w urzędzie, wystarczy, że dołączysz przez aplikacje."
+        } else {
+            descriptionLabel.text = "Przypomnij mi jak szacowany czas oczekiwania będzie równy:"
+        }
+        for timeButton in timeButtons {
+            timeButton.isHidden = hidden
+            timeButton.layer.cornerRadius = 5.0
+        }
+        actionButton.isHidden = !hidden
+        actionButton.layer.cornerRadius = 5.0
     }
 
     func showData() {
@@ -53,6 +72,14 @@ class QueueInfoViewController: UIViewController {
         let attributes = [NSFontAttributeName: UIFont.init(name: "FontAwesome", size: 20.0)!]
         barButtonItem.setTitleTextAttributes(attributes, for: .normal)
         navigationItem.rightBarButtonItem = barButtonItem
+    }
+
+    @IBAction func joinQueueOptionChanged(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            configureButtons(hidden: true)
+        } else {
+            configureButtons(hidden: false)
+        }
     }
 
     private func scheduleLocalNotification(message: String) {

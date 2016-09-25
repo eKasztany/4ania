@@ -175,7 +175,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="osób oczekujących" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVo-nB-dHe">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="oczekujących osób" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVo-nB-dHe">
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -210,31 +210,113 @@
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="JQ4-52-7Q3">
                                 <segments>
-                                    <segment title="Dołącz do kolejki teraz"/>
-                                    <segment title="Zarezerwuj termin"/>
+                                    <segment title="Teraz"/>
+                                    <segment title="Kiedy będzie krótsza"/>
                                 </segments>
                                 <color key="tintColor" red="0.0" green="0.74901960779999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="joinQueueOptionChanged:" destination="59F-3W-Jaa" eventType="valueChanged" id="nFG-BG-NDT"/>
+                                </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Gn-4k-mcO">
+                                <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="20 minut">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRd-o1-N5D">
+                                <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="15 minut">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Csl-hf-yjt">
+                                <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="10 minut">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRZYPOMNIJ MI JAK SZACOWANY CZAS OCZEKIWANIA BĘDZIE RÓWNY" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42y-KE-hXf">
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THh-lU-SAp">
+                                <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="uqL-nQ-19B"/>
+                                </constraints>
+                                <state key="normal" title="5 minut">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Cq-6q-Aqu">
+                                <color key="backgroundColor" red="0.48313140869140625" green="0.83513730764389038" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="Oej-Zy-h5F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="DOŁĄCZ DO KOLEJKI">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOŁĄCZ DO KOLEJKI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfh-uw-wqh">
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.98431372549019602" green="0.98431372549019602" blue="0.98431372549019602" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Csl-hf-yjt" secondAttribute="trailing" constant="20" id="4Ra-mF-UXQ"/>
+                            <constraint firstItem="THh-lU-SAp" firstAttribute="leading" secondItem="3aP-58-hW0" secondAttribute="leading" constant="20" id="5r2-Hm-UlD"/>
+                            <constraint firstItem="0Gn-4k-mcO" firstAttribute="width" secondItem="vRd-o1-N5D" secondAttribute="width" id="5xo-ea-3k1"/>
+                            <constraint firstAttribute="trailing" secondItem="3Cq-6q-Aqu" secondAttribute="trailing" constant="20" id="Bux-ib-ph5"/>
+                            <constraint firstItem="Csl-hf-yjt" firstAttribute="height" secondItem="THh-lU-SAp" secondAttribute="height" id="CkZ-zF-WBt"/>
+                            <constraint firstItem="0Gn-4k-mcO" firstAttribute="leading" secondItem="vRd-o1-N5D" secondAttribute="trailing" constant="8" id="Dsb-Z8-vho"/>
                             <constraint firstItem="mkI-p3-3sw" firstAttribute="leading" secondItem="3aP-58-hW0" secondAttribute="leading" id="Dzh-ec-tye"/>
+                            <constraint firstItem="THh-lU-SAp" firstAttribute="top" secondItem="42y-KE-hXf" secondAttribute="bottom" constant="20" id="EOK-FS-JSV"/>
+                            <constraint firstAttribute="trailing" secondItem="0Gn-4k-mcO" secondAttribute="trailing" constant="20" id="Eg1-fp-B1t"/>
                             <constraint firstItem="fFC-io-643" firstAttribute="centerX" secondItem="3aP-58-hW0" secondAttribute="centerX" id="H6z-d4-yhx"/>
+                            <constraint firstItem="0Gn-4k-mcO" firstAttribute="height" secondItem="THh-lU-SAp" secondAttribute="height" id="Hew-8a-46M"/>
+                            <constraint firstItem="Csl-hf-yjt" firstAttribute="baseline" secondItem="THh-lU-SAp" secondAttribute="baseline" id="Hmu-fj-q02"/>
+                            <constraint firstItem="0Gn-4k-mcO" firstAttribute="top" secondItem="Csl-hf-yjt" secondAttribute="bottom" constant="8" id="IFs-EW-e0z"/>
                             <constraint firstAttribute="trailingMargin" secondItem="JQ4-52-7Q3" secondAttribute="trailing" id="JYZ-Xc-daV"/>
-                            <constraint firstItem="JQ4-52-7Q3" firstAttribute="top" secondItem="Il2-wl-7cX" secondAttribute="bottom" constant="20" id="Jyg-3j-ExX"/>
+                            <constraint firstItem="mfh-uw-wqh" firstAttribute="centerX" secondItem="3aP-58-hW0" secondAttribute="centerX" id="Jqq-AW-Kby"/>
+                            <constraint firstItem="vRd-o1-N5D" firstAttribute="baseline" secondItem="0Gn-4k-mcO" secondAttribute="baseline" id="QV1-oT-rzc"/>
                             <constraint firstAttribute="leadingMargin" secondItem="JQ4-52-7Q3" secondAttribute="leading" id="XIE-eW-idt"/>
+                            <constraint firstItem="42y-KE-hXf" firstAttribute="top" secondItem="JQ4-52-7Q3" secondAttribute="bottom" constant="20" id="XPd-i7-IUA"/>
+                            <constraint firstItem="Csl-hf-yjt" firstAttribute="width" secondItem="THh-lU-SAp" secondAttribute="width" id="YgL-bz-IYr"/>
+                            <constraint firstItem="vRd-o1-N5D" firstAttribute="height" secondItem="THh-lU-SAp" secondAttribute="height" id="cb9-Ir-CVH"/>
+                            <constraint firstItem="vRd-o1-N5D" firstAttribute="leading" secondItem="3aP-58-hW0" secondAttribute="leading" constant="20" id="dGH-dg-ihJ"/>
                             <constraint firstItem="mkI-p3-3sw" firstAttribute="top" secondItem="hML-7V-g3j" secondAttribute="bottom" id="dlB-uN-rOl"/>
+                            <constraint firstItem="42y-KE-hXf" firstAttribute="centerX" secondItem="3aP-58-hW0" secondAttribute="centerX" id="e3d-4G-PTC"/>
                             <constraint firstItem="fFC-io-643" firstAttribute="top" secondItem="mkI-p3-3sw" secondAttribute="bottom" constant="20" id="ews-Op-oWD"/>
+                            <constraint firstAttribute="trailing" secondItem="42y-KE-hXf" secondAttribute="trailing" constant="20" id="gnl-o2-eLd"/>
+                            <constraint firstItem="Csl-hf-yjt" firstAttribute="leading" secondItem="THh-lU-SAp" secondAttribute="trailing" constant="8" id="j32-9l-vRW"/>
+                            <constraint firstItem="mfh-uw-wqh" firstAttribute="top" secondItem="Il2-wl-7cX" secondAttribute="bottom" constant="20" id="kh1-EV-bTw"/>
+                            <constraint firstItem="42y-KE-hXf" firstAttribute="leading" secondItem="3aP-58-hW0" secondAttribute="leading" constant="20" id="knd-Da-rjd"/>
                             <constraint firstItem="Il2-wl-7cX" firstAttribute="centerX" secondItem="3aP-58-hW0" secondAttribute="centerX" id="oSm-cU-EFw"/>
+                            <constraint firstItem="3Cq-6q-Aqu" firstAttribute="top" secondItem="42y-KE-hXf" secondAttribute="bottom" constant="20" id="pnN-Ds-BUT"/>
+                            <constraint firstItem="JQ4-52-7Q3" firstAttribute="top" secondItem="mfh-uw-wqh" secondAttribute="bottom" constant="20" id="rpw-fU-MQu"/>
                             <constraint firstAttribute="trailing" secondItem="mkI-p3-3sw" secondAttribute="trailing" id="txj-m6-Rll"/>
                             <constraint firstItem="Il2-wl-7cX" firstAttribute="top" secondItem="fFC-io-643" secondAttribute="bottom" constant="20" id="vgt-yk-KwW"/>
+                            <constraint firstItem="3Cq-6q-Aqu" firstAttribute="centerX" secondItem="3aP-58-hW0" secondAttribute="centerX" id="yUl-p5-ykJ"/>
+                            <constraint firstItem="3Cq-6q-Aqu" firstAttribute="leading" secondItem="3aP-58-hW0" secondAttribute="leading" constant="20" id="ztl-Jd-lI6"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <connections>
+                        <outlet property="actionButton" destination="3Cq-6q-Aqu" id="wD7-PT-xma"/>
                         <outlet property="currentNumber" destination="yjb-zy-ggg" id="Nna-i9-79c"/>
+                        <outlet property="descriptionLabel" destination="42y-KE-hXf" id="d7F-Yl-26C"/>
                         <outlet property="estimatedTimeOfService" destination="Il2-wl-7cX" id="IUW-2E-fP7"/>
                         <outlet property="numberOfPeopleInQueue" destination="vNN-je-ZLS" id="eyE-tT-3qQ"/>
+                        <outletCollection property="timeButtons" destination="Csl-hf-yjt" collectionClass="NSMutableArray" id="PZX-PB-ZT2"/>
+                        <outletCollection property="timeButtons" destination="vRd-o1-N5D" collectionClass="NSMutableArray" id="VM8-m7-CCS"/>
+                        <outletCollection property="timeButtons" destination="0Gn-4k-mcO" collectionClass="NSMutableArray" id="dB2-pv-aUn"/>
+                        <outletCollection property="timeButtons" destination="THh-lU-SAp" collectionClass="NSMutableArray" id="DJc-b0-Q93"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nk0-tR-EVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
