@@ -5,6 +5,7 @@ target 'Queue' do
   pod 'Firebase/Database'
   pod 'SnapKit'
   pod 'R.swift'
+  pod 'PopupDialog'
 end
 
 post_install do |installer|

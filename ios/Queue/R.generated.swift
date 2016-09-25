@@ -6,7 +6,11 @@ import Rswift
 import UIKit
 
 /// This `R` struct is code generated, and contains references to static resources.
-struct R {
+struct R: Rswift.Validatable {
+  static func validate() throws {
+    try intern.validate()
+  }
+  
   /// This `R.color` struct is generated, and contains static references to 0 color palettes.
   struct color {
     fileprivate init() {}
@@ -55,6 +59,14 @@ struct R {
     /// `UIImage(named: "Image", bundle: ..., traitCollection: ...)`
     static func image(compatibleWith traitCollection: UITraitCollection? = nil) -> UIImage? {
       return UIImage(resource: R.image.image, compatibleWith: traitCollection)
+    }
+    
+    fileprivate init() {}
+  }
+  
+  private struct intern: Rswift.Validatable {
+    static func validate() throws {
+      try _R.validate()
     }
     
     fileprivate init() {}
@@ -148,9 +160,13 @@ struct R {
   fileprivate init() {}
 }
 
-struct _R {
+struct _R: Rswift.Validatable {
   static let applicationLocale = hostingBundle.preferredLocalizations.first.flatMap(Locale.init) ?? Locale.current
   static let hostingBundle = Bundle(identifier: "com.aleksandergrzyb.Queue") ?? Bundle.main
+  
+  static func validate() throws {
+    try storyboard.validate()
+  }
   
   struct nib {
     struct _DepartmentDetailView: NibResourceType {
@@ -167,7 +183,11 @@ struct _R {
     fileprivate init() {}
   }
   
-  struct storyboard {
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      try main.validate()
+    }
+    
     struct launchScreen: StoryboardResourceWithInitialControllerType {
       typealias InitialController = UINavigationController
       
@@ -177,11 +197,20 @@ struct _R {
       fileprivate init() {}
     }
     
-    struct main: StoryboardResourceWithInitialControllerType {
+    struct main: StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UINavigationController
       
       let bundle = _R.hostingBundle
       let name = "Main"
+      let popupDialogVC = StoryboardViewControllerResource<DialogViewController>(identifier: "popupDialogVC")
+      
+      func popupDialogVC(_: Void = ()) -> DialogViewController? {
+        return UIStoryboard(resource: self).instantiateViewController(withResource: popupDialogVC)
+      }
+      
+      static func validate() throws {
+        if _R.storyboard.main().popupDialogVC() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'popupDialogVC' could not be loaded from storyboard 'Main' as 'DialogViewController'.") }
+      }
       
       fileprivate init() {}
     }

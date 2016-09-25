@@ -223,18 +223,27 @@
                                 <state key="normal" title="20 minut">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="minutePressed:" destination="59F-3W-Jaa" eventType="touchUpInside" id="Gss-cn-h7P"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vRd-o1-N5D">
                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="15 minut">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="minutePressed:" destination="59F-3W-Jaa" eventType="touchUpInside" id="MhC-hm-bfS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Csl-hf-yjt">
                                 <color key="backgroundColor" red="0.0" green="0.74901960779999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="10 minut">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="minutePressed:" destination="59F-3W-Jaa" eventType="touchUpInside" id="VTk-qf-YSI"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRZYPOMNIJ MI JAK SZACOWANY CZAS OCZEKIWANIA BĘDZIE RÓWNY" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="42y-KE-hXf">
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
@@ -249,6 +258,9 @@
                                 <state key="normal" title="5 minut">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="minutePressed:" destination="59F-3W-Jaa" eventType="touchUpInside" id="d54-DO-Zoy"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Cq-6q-Aqu">
                                 <color key="backgroundColor" red="0.48313140869140625" green="0.83513730764389038" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -260,6 +272,9 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="joinQueueTapped:" destination="59F-3W-Jaa" eventType="touchUpInside" id="5BO-ay-76s"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DOŁĄCZ DO KOLEJKI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfh-uw-wqh">
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
@@ -322,6 +337,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nk0-tR-EVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2720.8000000000002" y="124.58770614692655"/>
+        </scene>
+        <!--Dialog View Controller-->
+        <scene sceneID="gPx-KC-AFE">
+            <objects>
+                <viewController storyboardIdentifier="popupDialogVC" id="6lI-OE-Dcr" customClass="DialogViewController" customModule="Queue" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="A9d-WB-R4i"/>
+                        <viewControllerLayoutGuide type="bottom" id="dbm-kN-ric"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UZe-JS-N5T">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SNJ-4E-tIk">
+                                <string key="text">Udało się! 
+Twoja rezerwacja stała się faktem.</string>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Twój numerek w kolejce to:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtg-qb-bJC">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dodatkowo możemy wysłać Ci powiadomienie jeżeli liczba osób w kolejce spadnie poniżej:" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OiW-tT-Ia2">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HAx-pE-w2s">
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="50"/>
+                                <color key="textColor" red="0.48313140869140625" green="0.83513730764389038" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="dst-05-22f">
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhi-hu-y7Z">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="VI6-Y0-man">
+                                        <connections>
+                                            <action selector="stepperTapped:" destination="6lI-OE-Dcr" eventType="valueChanged" id="sEB-Ah-4Oy"/>
+                                        </connections>
+                                    </stepper>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="SNJ-4E-tIk" firstAttribute="top" secondItem="A9d-WB-R4i" secondAttribute="bottom" constant="17" id="2jX-Ix-M3g"/>
+                            <constraint firstItem="SNJ-4E-tIk" firstAttribute="leading" secondItem="UZe-JS-N5T" secondAttribute="leading" constant="20" id="9qx-CZ-JrX"/>
+                            <constraint firstItem="dst-05-22f" firstAttribute="centerX" secondItem="UZe-JS-N5T" secondAttribute="centerX" id="B1g-yQ-faO"/>
+                            <constraint firstItem="gtg-qb-bJC" firstAttribute="top" secondItem="SNJ-4E-tIk" secondAttribute="bottom" constant="8" id="DAn-Iq-e1r"/>
+                            <constraint firstItem="OiW-tT-Ia2" firstAttribute="top" secondItem="HAx-pE-w2s" secondAttribute="bottom" constant="8" id="DbU-B2-SXF"/>
+                            <constraint firstItem="OiW-tT-Ia2" firstAttribute="leading" secondItem="UZe-JS-N5T" secondAttribute="leading" constant="20" id="F2l-Q8-6GR"/>
+                            <constraint firstAttribute="trailing" secondItem="OiW-tT-Ia2" secondAttribute="trailing" constant="20" id="R76-7Y-DP0"/>
+                            <constraint firstAttribute="trailing" secondItem="gtg-qb-bJC" secondAttribute="trailing" constant="20" id="SJL-FG-HTS"/>
+                            <constraint firstItem="HAx-pE-w2s" firstAttribute="centerX" secondItem="UZe-JS-N5T" secondAttribute="centerX" id="SV1-0b-Qbx"/>
+                            <constraint firstAttribute="trailing" secondItem="SNJ-4E-tIk" secondAttribute="trailing" constant="20" id="hre-sa-0qu"/>
+                            <constraint firstItem="HAx-pE-w2s" firstAttribute="top" secondItem="gtg-qb-bJC" secondAttribute="bottom" constant="9.5" id="iqN-VD-OMu"/>
+                            <constraint firstItem="gtg-qb-bJC" firstAttribute="leading" secondItem="UZe-JS-N5T" secondAttribute="leading" constant="20" id="ko7-FL-cHa"/>
+                            <constraint firstItem="dst-05-22f" firstAttribute="top" secondItem="OiW-tT-Ia2" secondAttribute="bottom" constant="20" id="qEf-Hi-QhC"/>
+                            <constraint firstItem="dbm-kN-ric" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dst-05-22f" secondAttribute="bottom" constant="20" id="vPA-Wm-WO7"/>
+                        </constraints>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <connections>
+                        <outlet property="numberLabel" destination="Uhi-hu-y7Z" id="PTr-ci-ski"/>
+                        <outlet property="ticketLabel" destination="HAx-pE-w2s" id="wVX-Gl-QK9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2LC-YR-LXh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3604" y="123.68815592203899"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HVa-CC-JJf">

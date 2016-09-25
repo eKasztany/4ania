@@ -17,6 +17,7 @@
 		7A02BE8F1D97276B003F9627 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A02BE8E1D97276B003F9627 /* R.generated.swift */; };
 		7A02BE911D97460C003F9627 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A02BE901D97460C003F9627 /* ServiceCollectionViewCell.swift */; };
 		7A02BE931D975DCB003F9627 /* QueueInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A02BE921D975DCB003F9627 /* QueueInfoViewController.swift */; };
+		7A02BE951D97C123003F9627 /* DialogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A02BE941D97C123003F9627 /* DialogViewController.swift */; };
 		7A1A87DC1D96E23F000BE15D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1A87DB1D96E23F000BE15D /* MapKit.framework */; };
 		7A1A87DE1D96F1FA000BE15D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1A87DD1D96F1FA000BE15D /* Service.swift */; };
 		7A1A87E21D96F33A000BE15D /* ServiceGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1A87E11D96F33A000BE15D /* ServiceGroup.swift */; };
@@ -45,6 +46,7 @@
 		7A02BE8E1D97276B003F9627 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		7A02BE901D97460C003F9627 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A02BE921D975DCB003F9627 /* QueueInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueueInfoViewController.swift; sourceTree = "<group>"; };
+		7A02BE941D97C123003F9627 /* DialogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DialogViewController.swift; sourceTree = "<group>"; };
 		7A1A87DB1D96E23F000BE15D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7A1A87DD1D96F1FA000BE15D /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		7A1A87E11D96F33A000BE15D /* ServiceGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceGroup.swift; sourceTree = "<group>"; };
@@ -57,7 +59,7 @@
 		7A8507FB1D96D292002FA849 /* Queue.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Queue.entitlements; sourceTree = "<group>"; };
 		7A959B121D96D83A00B5382B /* RemoteNotificationsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoteNotificationsManager.swift; sourceTree = "<group>"; };
 		7A959B141D96D8C100B5382B /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
-		7A977A7B1D967CCC0089218B /* Queue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Queue.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A977A7B1D967CCC0089218B /* Kolejki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kolejki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A977A7E1D967CCC0089218B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A977A851D967CCC0089218B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7A977A881D967CCC0089218B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				7A02BE811D970E9F003F9627 /* ViewController.swift */,
 				7A02BE851D970F6E003F9627 /* ServiceViewController.swift */,
 				7A02BE921D975DCB003F9627 /* QueueInfoViewController.swift */,
+				7A02BE941D97C123003F9627 /* DialogViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -152,7 +155,7 @@
 		7A977A7C1D967CCC0089218B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A977A7B1D967CCC0089218B /* Queue.app */,
+				7A977A7B1D967CCC0089218B /* Kolejki.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -208,7 +211,7 @@
 			);
 			name = Queue;
 			productName = Queue;
-			productReference = 7A977A7B1D967CCC0089218B /* Queue.app */;
+			productReference = 7A977A7B1D967CCC0089218B /* Kolejki.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -356,6 +359,7 @@
 				7A959B131D96D83A00B5382B /* RemoteNotificationsManager.swift in Sources */,
 				7A977A7F1D967CCC0089218B /* AppDelegate.swift in Sources */,
 				7A02BE8C1D9726CF003F9627 /* DepartmentDetailView.swift in Sources */,
+				7A02BE951D97C123003F9627 /* DialogViewController.swift in Sources */,
 				7A8507F61D96C411002FA849 /* Location.swift in Sources */,
 				7A8507F41D96C3E0002FA849 /* Address.swift in Sources */,
 				7A02BE8F1D97276B003F9627 /* R.generated.swift in Sources */,
@@ -487,7 +491,7 @@
 				INFOPLIST_FILE = Queue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aleksandergrzyb.Queue;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Kolejki;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
@@ -505,7 +509,7 @@
 				INFOPLIST_FILE = Queue/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.aleksandergrzyb.Queue;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Kolejki;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

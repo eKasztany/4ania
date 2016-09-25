@@ -6,6 +6,7 @@
 import UIKit
 import UserNotifications
 import UserNotificationsUI
+import PopupDialog
 
 class QueueInfoViewController: UIViewController {
 
@@ -64,6 +65,17 @@ class QueueInfoViewController: UIViewController {
     func showData() {
     }
 
+    @IBAction func minutePressed(_ sender: UIButton) {
+        let title = "Powiadomienie ustawiono."
+        let message = "Wyślemy je jak szacowany czas oczekiwania spadnie do \(sender.titleLabel!.text!)."
+        let popup = PopupDialog(title: title, message: message)
+        let buttonOk = DefaultButton(title: "Dzięki") {
+            self.scheduleLocalNotification(message: "Szacowany czas oczekiwania spadł do \(sender.titleLabel!.text!).")
+        }
+        popup.addButtons([buttonOk])
+        present(popup, animated: true, completion: nil)
+    }
+
     private func configureBarButtonItem() {
         let barButtonItem = UIBarButtonItem(title: "\u{f080}",
                                             style: .plain,
@@ -80,6 +92,28 @@ class QueueInfoViewController: UIViewController {
         } else {
             configureButtons(hidden: false)
         }
+    }
+
+
+    @IBAction func joinQueueTapped(_ sender: UIButton) {
+        actionButton.isEnabled = false
+        actionButton.backgroundColor = UIColor(white:0.61, alpha:1.0)
+        actionButton.setTitle("DOŁĄCZONO DO KOLEJKI", for: .normal)
+        guard let service = service else { return }
+
+        let dialogVC = R.storyboard.main.popupDialogVC()!
+        dialogVC.ticketNumber = Int(service.currentServiceNumber + 1)
+        let popup = PopupDialog(viewController: dialogVC,
+                                buttonAlignment: .vertical,
+                                transitionStyle: .bounceUp,
+                                gestureDismissal: true,
+                                completion: nil)
+        let buttonOne = CancelButton(title: "Nie dziękuję") {}
+        let buttonTwo = DefaultButton(title: "Ustaw powiadomienie") {
+            self.scheduleLocalNotification(message: "Liczba osób w kolejce spadła do \(dialogVC.number!).")
+        }
+        popup.addButtons([buttonOne, buttonTwo])
+        present(popup, animated: true, completion: nil)
     }
 
     private func scheduleLocalNotification(message: String) {
