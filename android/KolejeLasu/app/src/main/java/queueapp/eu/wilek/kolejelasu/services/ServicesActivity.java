@@ -93,6 +93,7 @@ public class ServicesActivity extends AppCompatActivity implements OnGroupClickL
         Intent intent = new Intent(this, BookingActivity.class);
         intent.putExtra(BookingActivity.WAITING_COUNT, group.getQueue());
         intent.putExtra(BookingActivity.AVERAGE_TIME, group.getServiceTime());
+        intent.putExtra(BookingActivity.OFFICE_COUNT, group.getAvailableOffice());
         intent.putExtra(BookingActivity.GROUP, group.getName());
         intent.putExtra(DEPARTMENT_NAME, departmentName);
         startActivity(intent);

@@ -3,6 +3,7 @@ package queueapp.eu.wilek.kolejelasu.departments.adapters;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
+import android.text.util.Linkify;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,13 +38,17 @@ public class DepartmentsSwipePageAdapter extends PagerAdapter {
         ViewGroup layout = (ViewGroup) layoutInflater.inflate(R.layout.department_map_item, container, false);
 
         ((TextView) layout.findViewById(R.id.name)).setText(item.getName());
-        ((TextView) layout.findViewById(R.id.phone)).setText(item.getPhone());
         ((TextView) layout.findViewById(R.id.address)).setText(address.getCode() + " " + address.getCity() + "\n" + address.getStreet());
         ((TextView) layout.findViewById(R.id.monday)).setText(openingHours.getMonday());
         ((TextView) layout.findViewById(R.id.tuesday)).setText(openingHours.getTuesday());
         ((TextView) layout.findViewById(R.id.wednesday)).setText(openingHours.getWednesday());
         ((TextView) layout.findViewById(R.id.thursday)).setText(openingHours.getThrusday());
         ((TextView) layout.findViewById(R.id.friday)).setText(openingHours.getFriday());
+
+        TextView phone = (TextView) layout.findViewById(R.id.phone);
+        phone.setText(item.getPhone());
+
+        Linkify.addLinks(phone, Linkify.PHONE_NUMBERS);
 
         container.addView(layout);
 

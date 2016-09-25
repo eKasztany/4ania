@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +31,7 @@ public class BookingActivity extends AppCompatActivity {
 
     public static final String WAITING_COUNT = "waitingCount";
     public static final String AVERAGE_TIME = "averageTime";
+    public static final String OFFICE_COUNT = "offcieCount";
     public static final String GROUP = "group";
 
     private static final int VA_BOOKING_NOW = 0;
@@ -60,9 +62,11 @@ public class BookingActivity extends AppCompatActivity {
 
         waiting = bundle.getInt(WAITING_COUNT);
         departmentName = bundle.getString(ServicesActivity.DEPARTMENT_NAME);
+        int officeCount = bundle.getInt(OFFICE_COUNT);
 
         String time [] = bundle.getString(AVERAGE_TIME).split(":");
-        int seconds = ((Integer.parseInt(time[0]) * 60) + Integer.parseInt(time[1]) * waiting);
+
+        int seconds = (((Integer.parseInt(time[0]) * 60) + Integer.parseInt(time[1])) * waiting) / 2;
 
         ((TextView) findViewById(R.id.waiting_number)).setText(String.valueOf(waiting));
         ((TextView) findViewById(R.id.waiting_person)).setText(getString(R.string.waiting_person_format,
@@ -141,15 +145,7 @@ public class BookingActivity extends AppCompatActivity {
 
 
     private String convertSecondsToTime(int seconds) {
-        int hr = seconds / 3600;
-        int rem = seconds % 3600;
-        int mn = rem / 60;
-        int sec = rem % 60;
-        String hrStr = (hr < 10 ? "0" : "") + hr;
-        String mnStr = (mn<10 ? "0" : "") + mn;
-        String secStr = (sec < 10 ? "0" : "") + sec;
-
-        return hrStr + ":" +  mnStr + ":" + secStr;
+        return "" + (seconds / 60) + " minut";
     }
 
 
