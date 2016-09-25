@@ -85,8 +85,23 @@ struct R {
     fileprivate init() {}
   }
   
-  /// This `R.segue` struct is generated, and contains static references to 1 view controllers.
+  /// This `R.segue` struct is generated, and contains static references to 2 view controllers.
   struct segue {
+    /// This struct is generated for `ServiceViewController`, and contains static references to 1 segues.
+    struct serviceViewController {
+      /// Segue identifier `showQueue`.
+      static let showQueue: StoryboardSegueIdentifier<UIStoryboardSegue, ServiceViewController, QueueInfoViewController> = StoryboardSegueIdentifier(identifier: "showQueue")
+      
+      /// Optionally returns a typed version of segue `showQueue`.
+      /// Returns nil if either the segue identifier, the source, destination, or segue types don't match.
+      /// For use inside `prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)`.
+      static func showQueue(segue: UIStoryboardSegue) -> TypedStoryboardSegueInfo<UIStoryboardSegue, ServiceViewController, QueueInfoViewController>? {
+        return TypedStoryboardSegueInfo(segueIdentifier: R.segue.serviceViewController.showQueue, segue: segue)
+      }
+      
+      fileprivate init() {}
+    }
+    
     /// This struct is generated for `ViewController`, and contains static references to 1 segues.
     struct viewController {
       /// Segue identifier `showService`.

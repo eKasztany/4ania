@@ -24,7 +24,6 @@ class DepartmentDetailView: UIView {
         openingHoursIconLabel.text = "\u{f017}"
         phoneIcon.font = UIFont.init(name: "FontAwesome", size: 20.0)!
         phoneIcon.text = "\u{f095}"
-
     }
 
     var department: Department? {

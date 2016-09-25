@@ -4,10 +4,13 @@
 //
 
 import UIKit
+import AlamofireImage
+import Alamofire
 
 class ServiceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var serviceName: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     var serviceGroup: ServiceGroup? {
         didSet {
@@ -18,6 +21,12 @@ class ServiceCollectionViewCell: UICollectionViewCell {
 
     func configure(service: ServiceGroup) {
         serviceName.text = service.name
+        activityIndicator.startAnimating()
+        Alamofire.request(service.photoUrl).responseImage { response in
+            self.activityIndicator.stopAnimating()
+            if let image = response.result.value {
+                self.imageView.image = image
+            }
+        }
     }
-
 }
