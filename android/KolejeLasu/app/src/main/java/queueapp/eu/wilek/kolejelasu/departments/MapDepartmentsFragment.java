@@ -1,6 +1,7 @@
 package queueapp.eu.wilek.kolejelasu.departments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,11 +10,11 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.List;
 
 import queueapp.eu.wilek.kolejelasu.R;
+import queueapp.eu.wilek.kolejelasu.ServicesActivity;
 import queueapp.eu.wilek.kolejelasu.departments.adapters.DepartmentsSwipePageAdapter;
 import queueapp.eu.wilek.kolejelasu.departments.interfaces.OnDepartmentClickListener;
 import queueapp.eu.wilek.kolejelasu.model.department.Department;
@@ -74,7 +75,10 @@ public class MapDepartmentsFragment extends BaseDepertmentFragment implements On
             @Override
             public void onClick(View view) {
                 Department department = departmentsSwipePageAdapter.getItem(departmentsViewPager.getCurrentItem());
-                Toast.makeText(getContext(), department.getName(), Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(getContext(), ServicesActivity.class);
+                intent.putExtra(ServicesActivity.DEPARTMENT_ID, department.getDepartmentId());
+                getContext().startActivity(intent);
             }
         });
     }

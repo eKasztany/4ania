@@ -22,6 +22,9 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ServicesActivity"/>
+
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_maps_api_key"/>
