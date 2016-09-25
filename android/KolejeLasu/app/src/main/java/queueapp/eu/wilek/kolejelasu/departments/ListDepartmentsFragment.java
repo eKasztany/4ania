@@ -62,6 +62,7 @@ public class ListDepartmentsFragment extends BaseDepertmentFragment implements O
     public void onClick(Department department) {
         Intent intent = new Intent(getContext(), ServicesActivity.class);
         intent.putExtra(ServicesActivity.DEPARTMENT_ID, department.getDepartmentId());
+        intent.putExtra(ServicesActivity.DEPARTMENT_NAME, department.getName());
         getContext().startActivity(intent);
     }
 }

@@ -25,9 +25,19 @@
         <activity
             android:name=".services.ServicesActivity"/>
 
+        <activity
+            android:name=".booking.BookingActivity"/>
+
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="@string/google_maps_api_key"/>
+
+        <receiver android:name=".NotificationReceiver">
+            <intent-filter>
+                <action android:name="android.media.action.DISPLAY_NOTIFICATION" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

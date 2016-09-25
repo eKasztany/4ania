@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Koleje Lasu</string>
+    <string name="app_name">Kolejki</string>
     <string name="maps">Mapa urzędów</string>
     <string name="department_list">Urzędy</string>
     <string name="monday">Poniedziałek:</string>
@@ -7,4 +7,32 @@
     <string name="wednesday">Środka:</string>
     <string name="thursday">Czwartek:</string>
     <string name="friday">Piątek:</string>
+    <string name="waiting_person_format">%1$s %2$s</string>
+    <string name="estimate_time">Szacowany czas oczekiwania</string>
+    <string name="queue_now">Dołącz do kolejki teraz</string>
+    <string name="queue_best">Kiedy będzie krótsza</string>
+    <string name="make_reservation">DOŁĄCZ DO KOLEJKI</string>
+    <string name="queue_now_text">Nie musisz być w urzędzie, wystarczy że pobierzesz numerek przez aplikacje</string>
+    <string name="queue_opti_text">Przypomnij mi jak szacowany czas oczekiwania będzie równy</string>
+    <string name="confirmation">Potwierdzenie</string>
+    <string name="confirmation_text">Twoje rezerwacja stała się faktem. Twój numer w kolejce to:</string>
+    <string name="confirmation_push">Dodatkowo możemy wysłać Ci powiadomienie jeżeli liczba osób w kolejce spadnie poniżej liczby podanej poniżej:</string>
+    <string name="ok">OK</string>
+    <string name="confirmation_minutes">Przypomnimy Ci jeżeli czas spadnie poniżej wybranej wartości</string>
+
+    <plurals
+        name="person">
+        <item quantity="zero">osób</item>
+        <item quantity="one">osoba</item>
+        <item quantity="few">osoby</item>
+        <item quantity="other">osoby</item>
+    </plurals>
+
+    <plurals
+        name="waiting">
+        <item quantity="zero">oczekujących</item>
+        <item quantity="one">oczekująca</item>
+        <item quantity="few">oczekujące</item>
+        <item quantity="other">oczekujących</item>
+    </plurals>
 </resources>

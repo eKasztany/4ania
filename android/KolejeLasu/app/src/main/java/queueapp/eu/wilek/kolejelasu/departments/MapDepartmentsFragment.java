@@ -78,6 +78,7 @@ public class MapDepartmentsFragment extends BaseDepertmentFragment implements On
 
                 Intent intent = new Intent(getContext(), ServicesActivity.class);
                 intent.putExtra(ServicesActivity.DEPARTMENT_ID, department.getDepartmentId());
+                intent.putExtra(ServicesActivity.DEPARTMENT_NAME, department.getName());
                 getContext().startActivity(intent);
             }
         });
