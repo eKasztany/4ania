@@ -12,6 +12,7 @@ struct ServiceGroup {
     let name: String
     let numberOfPeopleInQueue: Double
     let currentServiceNumber: Double
+    let photoUrl: String
 }
 
 extension ServiceGroup {
@@ -21,12 +22,14 @@ extension ServiceGroup {
             let numberOfAvailablePosition = dictionary["liczbaCzynnychStan"] as? Double,
             let name = dictionary["nazwaGrupy"] as? String,
             let numberOfPeopleInQueue = dictionary["liczbaKlwKolejce"] as? Double,
-            let currentServiceNumber = dictionary["aktualnyNumer"] as? Double else { return nil }
+            let currentServiceNumber = dictionary["aktualnyNumer"] as? Double,
+            let photoUrl = dictionary["photoUrl"] as? String else { return nil }
         self.serviceTime = serviceTime
         self.uid = uid
         self.numberOfAvailablePosition = numberOfAvailablePosition
         self.name = name
         self.numberOfPeopleInQueue = numberOfPeopleInQueue
         self.currentServiceNumber = currentServiceNumber
+        self.photoUrl = photoUrl
     }
 }

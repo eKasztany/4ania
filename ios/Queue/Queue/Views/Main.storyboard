@@ -108,17 +108,23 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZYF-nE-h82"/>
                                             </subviews>
                                         </view>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="ZYF-nE-h82" firstAttribute="top" secondItem="WAG-iN-9Cw" secondAttribute="topMargin" constant="8" id="3wz-HN-bAF"/>
                                             <constraint firstItem="kc6-12-lW8" firstAttribute="centerX" secondItem="WAG-iN-9Cw" secondAttribute="centerX" id="Bww-dZ-SWq"/>
-                                            <constraint firstAttribute="bottomMargin" secondItem="kc6-12-lW8" secondAttribute="bottom" constant="20" id="Zni-ZD-SmA"/>
+                                            <constraint firstItem="kc6-12-lW8" firstAttribute="top" secondItem="ZYF-nE-h82" secondAttribute="bottom" constant="8" id="LEs-7Y-J8p"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="ZYF-nE-h82" secondAttribute="trailing" constant="8" id="Tb1-Po-ENV"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="kc6-12-lW8" secondAttribute="bottom" constant="8" id="Zni-ZD-SmA"/>
+                                            <constraint firstAttribute="leadingMargin" secondItem="ZYF-nE-h82" secondAttribute="leading" constant="8" id="iih-gv-Way"/>
                                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="kc6-12-lW8" secondAttribute="trailing" constant="8" id="jXU-EA-zz9"/>
                                             <constraint firstItem="kc6-12-lW8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="WAG-iN-9Cw" secondAttribute="leadingMargin" constant="8" id="wLA-If-8NU"/>
                                         </constraints>
                                         <size key="customSize" width="182" height="164"/>
                                         <connections>
+                                            <outlet property="imageView" destination="ZYF-nE-h82" id="AKQ-sE-XL1"/>
                                             <outlet property="serviceName" destination="kc6-12-lW8" id="Kn0-LK-kWv"/>
                                         </connections>
                                     </collectionViewCell>

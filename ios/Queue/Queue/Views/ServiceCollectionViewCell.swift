@@ -7,7 +7,8 @@ import UIKit
 
 class ServiceCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var serviceName: UILabel!
-    
+    @IBOutlet weak var imageView: UIImageView!
+
     var serviceGroup: ServiceGroup? {
         didSet {
             guard let serviceGroup = serviceGroup else { return }

@@ -1,7 +1,7 @@
 target 'Queue' do
   use_frameworks!
 
-  pod 'Alamofire'
+  pod 'AlamofireImage'
   pod 'Firebase/Database'
   pod 'SnapKit'
   pod 'R.swift'
