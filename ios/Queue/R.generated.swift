@@ -80,7 +80,7 @@ struct R {
     /// Reuse identifier `loadingCell`.
     static let loadingCell: ReuseIdentifier<UITableViewCell> = ReuseIdentifier(identifier: "loadingCell")
     /// Reuse identifier `serviceCell`.
-    static let serviceCell: ReuseIdentifier<UITableViewCell> = ReuseIdentifier(identifier: "serviceCell")
+    static let serviceCell: ReuseIdentifier<ServiceCollectionViewCell> = ReuseIdentifier(identifier: "serviceCell")
     
     fileprivate init() {}
   }

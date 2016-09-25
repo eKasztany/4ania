@@ -14,13 +14,13 @@ class ServiceViewController: UIViewController {
         case error
     }
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     var departmentId: String?
     var state: State = .loading {
         didSet {
             switch state {
             case .loaded(_):
-                tableView.reloadData()
+                collectionView.reloadData()
             default:
                 break
             }
@@ -30,7 +30,8 @@ class ServiceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.dataSource = self
+        collectionView.dataSource = self
+        collectionView.delegate = self
 
         FirebaseClient().load(resource: Service.all) { result in
             guard let result = result, let service = result.filter({ $0.uid == self.departmentId }).first else {
@@ -42,25 +43,31 @@ class ServiceViewController: UIViewController {
     }
 }
 
-extension ServiceViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch state {
-        case .loaded(let services):
-            let cell = tableView.dequeueReusableCell(withIdentifier: "serviceCell", for: indexPath) as UITableViewCell
-            cell.textLabel?.text = services[indexPath.row].name
-            return cell
-        default:
-            break
-        }
-        return UITableViewCell()
+extension ServiceViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.frame.width - 30) * 0.5
+        return CGSize(width: width, height: width)
     }
+}
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension ServiceViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch state {
         case .loaded(let services):
             return services.count
         default:
-            return 1
+            return 0
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        switch state {
+        case .loaded(let services):
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.serviceCell, for: indexPath)!
+            cell.configure(service: services[indexPath.row])
+            return cell
+        default:
+            return UICollectionViewCell()
         }
     }
 }

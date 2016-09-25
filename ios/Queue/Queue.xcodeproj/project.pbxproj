@@ -15,6 +15,7 @@
 		7A02BE8A1D97228B003F9627 /* DepartmentDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A02BE891D97228B003F9627 /* DepartmentDetailView.xib */; };
 		7A02BE8C1D9726CF003F9627 /* DepartmentDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A02BE8B1D9726CF003F9627 /* DepartmentDetailView.swift */; };
 		7A02BE8F1D97276B003F9627 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A02BE8E1D97276B003F9627 /* R.generated.swift */; };
+		7A02BE911D97460C003F9627 /* ServiceCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A02BE901D97460C003F9627 /* ServiceCollectionViewCell.swift */; };
 		7A1A87DC1D96E23F000BE15D /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A1A87DB1D96E23F000BE15D /* MapKit.framework */; };
 		7A1A87DE1D96F1FA000BE15D /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1A87DD1D96F1FA000BE15D /* Service.swift */; };
 		7A1A87E21D96F33A000BE15D /* ServiceGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1A87E11D96F33A000BE15D /* ServiceGroup.swift */; };
@@ -41,6 +42,7 @@
 		7A02BE891D97228B003F9627 /* DepartmentDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DepartmentDetailView.xib; sourceTree = "<group>"; };
 		7A02BE8B1D9726CF003F9627 /* DepartmentDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DepartmentDetailView.swift; sourceTree = "<group>"; };
 		7A02BE8E1D97276B003F9627 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		7A02BE901D97460C003F9627 /* ServiceCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceCollectionViewCell.swift; sourceTree = "<group>"; };
 		7A1A87DB1D96E23F000BE15D /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		7A1A87DD1D96F1FA000BE15D /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		7A1A87E11D96F33A000BE15D /* ServiceGroup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceGroup.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				7A02BE831D970ECC003F9627 /* Main.storyboard */,
 				7A02BE891D97228B003F9627 /* DepartmentDetailView.xib */,
 				7A02BE8B1D9726CF003F9627 /* DepartmentDetailView.swift */,
+				7A02BE901D97460C003F9627 /* ServiceCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 				7A8507FA1D96C511002FA849 /* FirebaseClient.swift in Sources */,
 				7A1A87E21D96F33A000BE15D /* ServiceGroup.swift in Sources */,
 				7A8507F81D96C468002FA849 /* OpeningHours.swift in Sources */,
+				7A02BE911D97460C003F9627 /* ServiceCollectionViewCell.swift in Sources */,
 				7A8507F21D96C3C9002FA849 /* Department.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
