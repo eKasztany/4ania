@@ -1,4 +1,6 @@
-# 4ania
+# iOS and Android
+
+iOS and Android apps for http://hackathon.gov.pl hackathon.
 
 # API
 
